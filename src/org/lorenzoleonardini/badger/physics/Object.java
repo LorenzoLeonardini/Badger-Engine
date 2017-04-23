@@ -1,21 +1,24 @@
 package org.lorenzoleonardini.badger.physics;
 
-import org.lorenzoleonardini.badger.assets.Texture;
+import org.lorenzoleonardini.badger.texture.ObjectRender;
 
 /**
- * The Object class is the abstraction of an object in the physics engine. This class is used to represent all
- * the possible elements in the abstract world.
+ * The Object class is the abstraction of an object in the physics engine. This
+ * class is used to represent all the possible elements in the abstract world.
  * 
  * @author Lorenzo Leonardini
  *
  */
 public class Object
 {
-	private Texture texture;
+	private Material material;
+
+	public ObjectRender objectRender;
 	private boolean unmovable = false;
-	private boolean transparent = false;
 	private boolean affectedByGravity = true;
 	public boolean isOnGround = false;
+
+	private boolean killWhenOutOfBounds = true;
 
 	public boolean flip = false;
 
@@ -27,12 +30,13 @@ public class Object
 	 * Create an object in a certain position using a defined texture
 	 * @param x
 	 * @param y
-	 * @param texture
+	 * @param objectRender
 	 */
-	public Object(double x, double y, Texture texture)
+	public Object(double x, double y, ObjectRender objectRender, Material material)
 	{
 		this.position = new Vector2D(x, y);
-		this.texture = texture;
+		this.objectRender = objectRender;
+		this.material = material;
 		ObjectManager.addObject(this);
 	}
 
@@ -50,12 +54,12 @@ public class Object
 		acceleration.x = 0;
 		acceleration.y = 0;
 
-		if (position.y >= 146)
-		{
-			position.y = 146;
-			velocity.y = 0;
-			isOnGround = true;
-		}
+		// if (position.y >= 146)
+		// {
+		// position.y = 146;
+		// velocity.y = 0;
+		// isOnGround = true;
+		// }
 	}
 
 	/**
@@ -72,8 +76,9 @@ public class Object
 	 */
 	public void applyForce(Vector2D force)
 	{
-		this.acceleration.x += force.x;
-		this.acceleration.y += force.y;
+		double mass = material.getMass(objectRender.getVolume());
+		this.acceleration.x += force.x * mass;
+		this.acceleration.y += force.y * mass;
 	}
 
 	/**
@@ -88,22 +93,7 @@ public class Object
 		int x = (int) position.x;
 		int y = (int) position.y;
 
-		if (!flip)
-			for (int X = 0; X < texture.getWidth(); X++)
-				for (int Y = 0; Y < texture.getHeight(); Y++)
-				{
-					if (x + X >= screenWidth || x + X < 0 || y + Y >= pixels.length / screenWidth || y + Y < 0 || texture.pixels[X + Y * texture.getWidth()] == 0xff00ff)
-						continue;
-					pixels[x + X + (y + Y) * screenWidth] = texture.pixels[X + Y * texture.getWidth()];
-				}
-		else
-			for (int X = 1; X <= texture.getWidth(); X++)
-				for (int Y = 0; Y < texture.getHeight(); Y++)
-				{
-					if (x + X >= screenWidth || x + X < 0 || y + Y >= pixels.length / screenWidth || y + Y < 0 || texture.pixels[texture.getWidth() - X + Y * texture.getWidth()] == 0xff00ff)
-						continue;
-					pixels[x + X + (y + Y) * screenWidth] = texture.pixels[texture.getWidth() - X + Y * texture.getWidth()];
-				}
+		objectRender.render(pixels, screenWidth, x, y, flip);
 	}
 
 	/**
@@ -143,24 +133,6 @@ public class Object
 	}
 
 	/**
-	 * Set the object as a "transparent object". This means that other objects
-	 * can't collide with it.
-	 * @param transparent
-	 */
-	public void setTransparent(boolean transparent)
-	{
-		this.transparent = transparent;
-	}
-
-	/**
-	 * @return true if the object is transparent
-	 */
-	public boolean isTransparent()
-	{
-		return transparent;
-	}
-
-	/**
 	 * Set if the object is affected by gravity or not.
 	 * @param affectedByGravity
 	 */
@@ -175,5 +147,23 @@ public class Object
 	public boolean isAffectedByGravity()
 	{
 		return affectedByGravity;
+	}
+
+	/**
+	 * Set if the object will be deleted when it will be outside the screen
+	 * bounds
+	 * @param affectedByGravity
+	 */
+	public void setKillWhenOutOfBounds(boolean killWhenOutOfBounds)
+	{
+		this.killWhenOutOfBounds = killWhenOutOfBounds;
+	}
+
+	/**
+	 * @return true if the object will be killed when out of bounds
+	 */
+	public boolean killWhenOutOfBounds()
+	{
+		return killWhenOutOfBounds;
 	}
 }

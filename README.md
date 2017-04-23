@@ -1,5 +1,9 @@
 # Badger Engine
 
+# _DISCLAIMER_
+_This project is in development and I'm really starting with it. This means that at the moment it can't really 
+much anything and commits are really often._
+
 ## The Engine
 At the moment the Engine can't really be used. In fact you can't add and manage Objects without hardcoding it directly into the Engine. This problem will be fixed soon, by the time let's see what the Engine is about.
 

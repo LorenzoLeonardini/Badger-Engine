@@ -20,6 +20,7 @@ import org.lorenzoleonardini.badger.physics.Vector2D;
 import org.lorenzoleonardini.badger.renderer.Screen;
 import org.lorenzoleonardini.badger.texture.Circle;
 import org.lorenzoleonardini.badger.texture.ObjectTexture;
+import org.lorenzoleonardini.badger.texture.Rectangle;
 import org.lorenzoleonardini.badger.texture.Shape;
 
 /**
@@ -145,10 +146,16 @@ public class Game extends Canvas implements Runnable
 
 		if ((System.currentTimeMillis() - startTime) % 10 == 0)
 		{
-			Object obj = new Object(WIDTH / 2 + random.nextInt(10) - 5, 100 + random.nextInt(10), new Circle(random.nextInt(12) + 12), m);
+			int size = random.nextInt(12) + 12;
+			Object obj;
+			if(random.nextBoolean())
+				obj = new Object(WIDTH / 2 + random.nextInt(10) - 5, 100 + random.nextInt(10), new Rectangle(size, size), m);
+			else
+				obj = new Object(WIDTH / 2 + random.nextInt(10) - 5, 100 + random.nextInt(10), new Circle(size), m);
 			((Shape) obj.objectRender).fill(255);
 			((Shape) obj.objectRender).strokeWeight(1);
 			((Shape) obj.objectRender).stroke(38);
+			((Shape) obj.objectRender).strokeWeight(2);
 			obj.applyForce(Vector2D.randomVector(200));
 		}
 

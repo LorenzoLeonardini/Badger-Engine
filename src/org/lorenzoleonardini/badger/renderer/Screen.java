@@ -5,7 +5,6 @@ import java.util.Random;
 
 import org.lorenzoleonardini.badger.physics.Object;
 import org.lorenzoleonardini.badger.physics.ObjectManager;
-import org.lorenzoleonardini.badger.texture.ObjectTexture;
 import org.lorenzoleonardini.badger.window.Game;
 
 /**

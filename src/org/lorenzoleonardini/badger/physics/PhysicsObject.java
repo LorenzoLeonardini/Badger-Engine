@@ -3,13 +3,13 @@ package org.lorenzoleonardini.badger.physics;
 import org.lorenzoleonardini.badger.texture.ObjectRender;
 
 /**
- * The Object class is the abstraction of an object in the physics engine. This
+ * The PhysicsObject class is the abstraction of an object in the physics engine. This
  * class is used to represent all the possible elements in the abstract world.
  * 
  * @author Lorenzo Leonardini
  *
  */
-public class Object
+public class PhysicsObject
 {
 	private Material material;
 
@@ -32,7 +32,7 @@ public class Object
 	 * @param y
 	 * @param objectRender
 	 */
-	public Object(double x, double y, ObjectRender objectRender, Material material)
+	public PhysicsObject(double x, double y, ObjectRender objectRender, Material material)
 	{
 		this.position = new Vector2D(x, y);
 		this.objectRender = objectRender;

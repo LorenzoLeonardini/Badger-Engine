@@ -54,8 +54,9 @@ public class Circle extends Shape
 				double dist = Math.sqrt((x - r + 1) * (x - r + 1) + (y - r + 1) * (y - r + 1));
 				if (dist > r)
 					pixels[x + y * (r * 2 - 1)] = 0xff00ff;
-				if ((int) dist >= r - strokeSize && dist <= r)
-					pixels[x + y * (r * 2 - 1)] = 0xffffff;
+				if (strokeSize > 0)
+					if ((int) dist >= r - strokeSize && dist <= r)
+						pixels[x + y * (r * 2 - 1)] = 0xffffff;
 			}
 		}
 		calcVolume();

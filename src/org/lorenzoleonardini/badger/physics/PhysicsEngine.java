@@ -3,7 +3,7 @@ package org.lorenzoleonardini.badger.physics;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.lorenzoleonardini.badger.window.Game;
+import org.lorenzoleonardini.badger.Engine;
 
 /**
  * The PhysicsEngine class does all the actual physics of the engine
@@ -15,13 +15,13 @@ public class PhysicsEngine
 {
 	private Vector2D gravity = new Vector2D(0, 2);
 
-	private List<Object> toRemove = new ArrayList<Object>();
+	private List<PhysicsObject> toRemove = new ArrayList<PhysicsObject>();
 
-	private Game game;
+	private Engine engine;
 
-	public PhysicsEngine(Game game)
+	public PhysicsEngine(Engine engine)
 	{
-		this.game = game;
+		this.engine = engine;
 	}
 
 	/**
@@ -29,16 +29,16 @@ public class PhysicsEngine
 	 */
 	public void update()
 	{
-		for (Object o : ObjectManager.getObjects())
+		for (PhysicsObject o : ObjectManager.getObjects())
 		{
 			if (o.isAffectedByGravity())
 				o.applyForce(gravity);
 
-			o.update(game.getDelta());
+			o.update(engine.getDelta());
 
 			if (o.killWhenOutOfBounds())
 			{
-				if (o.position.y - o.objectRender.h >= game.HEIGHT)
+				if (o.position.y - o.objectRender.h >= engine.HEIGHT)
 					toRemove.add(o);
 			}
 		}

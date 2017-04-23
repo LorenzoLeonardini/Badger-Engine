@@ -12,14 +12,14 @@ import java.util.List;
  */
 public class ObjectManager
 {
-	private static List<Object> objects = new ArrayList<Object>();
+	private static List<PhysicsObject> objects = new ArrayList<PhysicsObject>();
 
-	protected static void addObject(Object o)
+	protected static void addObject(PhysicsObject o)
 	{
 		objects.add(o);
 	}
 
-	public static List<Object> getObjects()
+	public static List<PhysicsObject> getObjects()
 	{
 		return objects;
 	}

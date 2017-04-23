@@ -19,6 +19,7 @@ import org.lorenzoleonardini.badger.physics.PhysicsEngine;
 import org.lorenzoleonardini.badger.physics.Vector2D;
 import org.lorenzoleonardini.badger.renderer.Screen;
 import org.lorenzoleonardini.badger.texture.Circle;
+import org.lorenzoleonardini.badger.texture.ObjectTexture;
 import org.lorenzoleonardini.badger.texture.Shape;
 
 /**
@@ -224,6 +225,11 @@ public class Game extends Canvas implements Runnable
 	 */
 	public void run()
 	{
+		ObjectTexture txt = new ObjectTexture(loader.loadTexture("C:/Users/Lorenzo/Desktop/Mario_8Bit.png"));
+		txt.scale(3);
+		Object supermario = new Object(100, 100, txt, m);
+		
+		supermario.setAffectedByGravity(false);
 		while (running)
 		{
 			if (fpsDelta())

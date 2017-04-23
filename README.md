@@ -11,7 +11,7 @@ The Engine aims to be a both 2D and 3D Engine. The 3D development will start whe
 
 The physics engine manage all the objects in the scene, with the possibility to apply gravity or other forces to them.
 
-![Gravity example gif](http://lorenzoleonardini.altervista.org/engine.gif)
+<div align="center"><img src="http://lorenzoleonardini.altervista.org/engine.gif"></div>
 
 ## License
 You are free to:

@@ -1,5 +1,14 @@
 # Badger Engine
 
+## The Engine
+At the moment the Engine can't really be used. In fact you can't add and manage Objects without hardcoding it directly into the Engine. This problem will be fixed soon, by the time let's see what the Engine is about.
+
+The Engine aims to be a both 2D and 3D Engine. The 3D development will start when the 2D one is pretty much finished.
+
+The physics engine manage all the objects in the scene, with the possibility to apply gravity or other forces to them.
+
+![Gravity example gif](http://lorenzoleonardini.altervista.org/engine.gif)
+
 ## License
 You are free to:
   - modify this Engine and use it for a personal project

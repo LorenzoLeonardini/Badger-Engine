@@ -16,12 +16,21 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1492982651770</id>
+			<id>1493063664413</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
 				<arguments>1.0-name-matches-false-false-output</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1493063664420</id>
+			<name></name>
+			<type>10</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-Badger-Engine.wiki</arguments>
 			</matcher>
 		</filter>
 	</filteredResources>

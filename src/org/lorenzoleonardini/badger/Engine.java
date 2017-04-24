@@ -1,5 +1,7 @@
 package org.lorenzoleonardini.badger;
 
+import org.lorenzoleonardini.badger.input.Keyboard;
+import org.lorenzoleonardini.badger.input.Typeable;
 import org.lorenzoleonardini.badger.physics.ObjectManager;
 
 /**
@@ -7,7 +9,7 @@ import org.lorenzoleonardini.badger.physics.ObjectManager;
  * @author Lorenzo Leonardini
  *
  */
-public abstract class Engine
+public abstract class Engine extends Typeable
 {
 	private int fps = 0;
 	protected long startTime;
@@ -15,11 +17,18 @@ public abstract class Engine
 	private long time, lastTime = 0;
 	private double dt = 1000000000;
 	public double HEIGHT;
+	public Keyboard keyboard;
 	
-	protected UpdateCallback loop = new UpdateCallback();
-	
+	protected UpdateCallback loop = new UpdateCallback()
+	{
+		@Override
+		public void update()
+		{
+		}
+	};
+
 	public boolean logFPS = true, logObjects = true;
-	
+
 	/**
 	 * Calculate the delta value and the fps
 	 * @return
@@ -34,10 +43,10 @@ public abstract class Engine
 		if (System.currentTimeMillis() > startTime + 1000)
 		{
 			startTime = System.currentTimeMillis();
-			if(logFPS)
+			if (logFPS)
 				Log("FPS: " + fps);
 			fps = 0;
-			if(logObjects)
+			if (logObjects)
 				Log("NUMBER OF OBJECTS : " + ObjectManager.getObjects().size());
 		}
 
@@ -46,7 +55,7 @@ public abstract class Engine
 		lastTime = time;
 		return b;
 	}
-	
+
 	/**
 	 * @return the delta value
 	 */
@@ -54,7 +63,16 @@ public abstract class Engine
 	{
 		return dt;
 	}
-	
+
+	/**
+	 * Set what the engine must do every loop cycle
+	 * @param callback
+	 */
+	public void update(UpdateCallback callback)
+	{
+		loop = callback;
+	}
+
 	public static void Log(String message)
 	{
 		System.out.println("ENGINE > " + message);

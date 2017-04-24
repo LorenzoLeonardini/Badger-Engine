@@ -20,13 +20,12 @@ public class Engine2D extends Engine implements Runnable
 
 	private PhysicsEngine physicsEngine;
 	public Loader loader;
-	public Keyboard keyboard;
 
 	public Engine2D()
 	{
 		loader = new Loader();
 		physicsEngine = new PhysicsEngine(this);
-		keyboard = new Keyboard();
+		keyboard = new Keyboard(this);
 	}
 
 	/**
@@ -81,15 +80,6 @@ public class Engine2D extends Engine implements Runnable
 	{
 		physicsEngine.update();
 		keyboard.update();
-	}
-
-	/**
-	 * Set what the engine must do every loop cycle
-	 * @param callback
-	 */
-	public void update(UpdateCallback callback)
-	{
-		loop = callback;
 	}
 
 	/**

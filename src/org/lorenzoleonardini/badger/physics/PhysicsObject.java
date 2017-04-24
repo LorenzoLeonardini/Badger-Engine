@@ -1,5 +1,6 @@
 package org.lorenzoleonardini.badger.physics;
 
+import org.lorenzoleonardini.badger.input.Typeable;
 import org.lorenzoleonardini.badger.texture.ObjectRender;
 
 /**
@@ -9,7 +10,7 @@ import org.lorenzoleonardini.badger.texture.ObjectRender;
  * @author Lorenzo Leonardini
  *
  */
-public class PhysicsObject
+public class PhysicsObject extends Typeable
 {
 	private Material material;
 
@@ -25,7 +26,7 @@ public class PhysicsObject
 	public Vector2D position;
 	private Vector2D velocity = new Vector2D(0, 0);
 	private Vector2D acceleration = new Vector2D(0, 0);
-
+	
 	/**
 	 * Create an object in a certain position using a defined texture
 	 * @param x

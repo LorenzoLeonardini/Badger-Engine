@@ -16,16 +16,16 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1493063664413</id>
+			<id>1493068261718</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
-				<arguments>1.0-name-matches-false-false-output</arguments>
+				<arguments>1.0-name-matches-false-false-release</arguments>
 			</matcher>
 		</filter>
 		<filter>
-			<id>1493063664420</id>
+			<id>1493068261724</id>
 			<name></name>
 			<type>10</type>
 			<matcher>

@@ -12,9 +12,9 @@ The physics engine manage all the objects in the scene, with the possibility to 
 
 <div align="center"><img src="http://lorenzoleonardini.altervista.org/engine.gif"></div>
 
-## License
+## Licence
 You are free to:
-  - modify this Engine and use it for a personal project
+  - modify this Engine and use it for a personal, private project
   - use this Engine without any modification for a public non-commercial project
   - study the code for a learn scope
   

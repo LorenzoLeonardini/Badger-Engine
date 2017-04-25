@@ -1,7 +1,6 @@
 package org.lorenzoleonardini.badger;
 
 import org.lorenzoleonardini.badger.assets.Loader;
-import org.lorenzoleonardini.badger.input.Keyboard;
 import org.lorenzoleonardini.badger.physics.PhysicsEngine;
 import org.lorenzoleonardini.badger.window.Window;
 
@@ -25,7 +24,6 @@ public class Engine2D extends Engine implements Runnable
 	{
 		loader = new Loader();
 		physicsEngine = new PhysicsEngine(this);
-		keyboard = new Keyboard(this);
 	}
 
 	/**
@@ -44,6 +42,7 @@ public class Engine2D extends Engine implements Runnable
 		this.HEIGHT = height;
 		window = new Window(width, height, scale, title);
 		window.addKeyListener(keyboard);
+		window.addMouseListener(mouse);
 	}
 
 	/**
@@ -79,7 +78,6 @@ public class Engine2D extends Engine implements Runnable
 	private void update()
 	{
 		physicsEngine.update();
-		keyboard.update();
 	}
 
 	/**
@@ -91,6 +89,7 @@ public class Engine2D extends Engine implements Runnable
 		{
 			if (fpsDelta())
 				continue;
+			input();
 			update();
 			loop.update();
 			window.render();

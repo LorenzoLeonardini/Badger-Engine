@@ -1,16 +1,17 @@
 package org.lorenzoleonardini.badger.physics;
 
-import org.lorenzoleonardini.badger.input.Typeable;
+import org.lorenzoleonardini.badger.input.Input;
 import org.lorenzoleonardini.badger.texture.ObjectRender;
 
 /**
- * The PhysicsObject class is the abstraction of an object in the physics engine. This
- * class is used to represent all the possible elements in the abstract world.
+ * The PhysicsObject class is the abstraction of an object in the physics
+ * engine. This class is used to represent all the possible elements in the
+ * abstract world.
  * 
  * @author Lorenzo Leonardini
  *
  */
-public class PhysicsObject extends Typeable
+public class PhysicsObject extends Input
 {
 	private Material material;
 
@@ -26,7 +27,7 @@ public class PhysicsObject extends Typeable
 	public Vector2D position;
 	private Vector2D velocity = new Vector2D(0, 0);
 	private Vector2D acceleration = new Vector2D(0, 0);
-	
+
 	/**
 	 * Create an object in a certain position using a defined texture
 	 * @param x

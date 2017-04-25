@@ -1,7 +1,8 @@
 package org.lorenzoleonardini.badger;
 
+import org.lorenzoleonardini.badger.input.Input;
 import org.lorenzoleonardini.badger.input.Keyboard;
-import org.lorenzoleonardini.badger.input.Typeable;
+import org.lorenzoleonardini.badger.input.Mouse;
 import org.lorenzoleonardini.badger.physics.ObjectManager;
 
 /**
@@ -9,7 +10,7 @@ import org.lorenzoleonardini.badger.physics.ObjectManager;
  * @author Lorenzo Leonardini
  *
  */
-public abstract class Engine extends Typeable
+public abstract class Engine extends Input
 {
 	private int fps = 0;
 	protected long startTime;
@@ -18,6 +19,7 @@ public abstract class Engine extends Typeable
 	private double dt = 1000000000;
 	public double HEIGHT;
 	public Keyboard keyboard;
+	public Mouse mouse;
 	
 	protected UpdateCallback loop = new UpdateCallback()
 	{
@@ -29,6 +31,21 @@ public abstract class Engine extends Typeable
 
 	public boolean logFPS = true, logObjects = true;
 
+	public Engine()
+	{
+		keyboard = new Keyboard(this);
+		mouse = new Mouse(this);
+	}
+	
+	/**
+	 * Update keyboard and mouse
+	 */
+	protected void input()
+	{
+		keyboard.update();
+		mouse.update();
+	}
+	
 	/**
 	 * Calculate the delta value and the fps
 	 * @return

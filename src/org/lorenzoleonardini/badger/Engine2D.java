@@ -43,6 +43,7 @@ public class Engine2D extends Engine implements Runnable
 		window = new Window(width, height, scale, title);
 		window.addKeyListener(keyboard);
 		window.addMouseListener(mouse);
+		window.addMouseMotionListener(mouse);
 	}
 
 	/**

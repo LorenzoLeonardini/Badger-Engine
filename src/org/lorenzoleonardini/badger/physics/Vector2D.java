@@ -28,7 +28,10 @@ public class Vector2D
 	public static Vector2D randomVector(int magnitude)
 	{
 		Random r = new Random();
-		double x = r.nextDouble() * 2 * magnitude - magnitude, y = r.nextDouble() * 2 * magnitude - magnitude;
+		double length = r.nextDouble() * magnitude;
+		double angle = r.nextDouble() * 360;
+		double x = Math.cos(Math.toRadians(angle)) * length;
+		double y = Math.sin(Math.toRadians(angle)) * length;
 		return new Vector2D(x, y);
 	}
 

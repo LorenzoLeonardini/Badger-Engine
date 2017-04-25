@@ -78,4 +78,14 @@ public class MouseEvent
 	{
 
 	}
+	
+	/**
+	 * This code will be executed EVERY frame the mouse is in the screen
+	 * @param x
+	 * @param y
+	 */
+	public void onMouse(int x, int y)
+	{
+		
+	}
 }

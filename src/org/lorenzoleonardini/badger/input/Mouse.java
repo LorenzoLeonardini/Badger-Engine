@@ -17,7 +17,7 @@ import org.lorenzoleonardini.badger.physics.PhysicsObject;
  */
 public class Mouse implements MouseListener, MouseMotionListener
 {
-	public boolean onScreen = false;
+	private boolean onScreen = false;
 	private List<BUTTON> pressed = new ArrayList<BUTTON>();
 	private int x, y;
 
@@ -44,6 +44,16 @@ public class Mouse implements MouseListener, MouseMotionListener
 		for (org.lorenzoleonardini.badger.input.MouseEvent evt : engine.mouseEvents)
 			for (BUTTON b : pressed)
 				evt.onMouseDown(b, x, y);
+
+		if (onScreen)
+		{
+			for (PhysicsObject o : objs)
+				for (org.lorenzoleonardini.badger.input.MouseEvent evt : o.mouseEvents)
+					evt.onMouse(x, y);
+
+			for (org.lorenzoleonardini.badger.input.MouseEvent evt : engine.mouseEvents)
+				evt.onMouse(x, y);
+		}
 	}
 
 	@Override
@@ -88,7 +98,7 @@ public class Mouse implements MouseListener, MouseMotionListener
 		for (PhysicsObject o : objs)
 			for (org.lorenzoleonardini.badger.input.MouseEvent evt : o.mouseEvents)
 				evt.onMouseLeave();
-		
+
 		for (org.lorenzoleonardini.badger.input.MouseEvent evt : engine.mouseEvents)
 			evt.onMouseLeave();
 	}
@@ -143,7 +153,7 @@ public class Mouse implements MouseListener, MouseMotionListener
 		for (PhysicsObject o : objs)
 			for (org.lorenzoleonardini.badger.input.MouseEvent evt : o.mouseEvents)
 				evt.onMouseReleased(btn, x, y);
-		
+
 		for (org.lorenzoleonardini.badger.input.MouseEvent evt : engine.mouseEvents)
 			evt.onMouseReleased(btn, x, y);
 	}
@@ -154,7 +164,7 @@ public class Mouse implements MouseListener, MouseMotionListener
 		for (PhysicsObject o : objs)
 			for (org.lorenzoleonardini.badger.input.MouseEvent evt : o.mouseEvents)
 				evt.onMousePressed(btn, x, y);
-		
+
 		for (org.lorenzoleonardini.badger.input.MouseEvent evt : engine.mouseEvents)
 			evt.onMousePressed(btn, x, y);
 	}
@@ -165,7 +175,7 @@ public class Mouse implements MouseListener, MouseMotionListener
 		for (PhysicsObject o : objs)
 			for (org.lorenzoleonardini.badger.input.MouseEvent evt : o.mouseEvents)
 				evt.onMouseClicked(btn, x, y);
-		
+
 		for (org.lorenzoleonardini.badger.input.MouseEvent evt : engine.mouseEvents)
 			evt.onMouseClicked(btn, x, y);
 	}

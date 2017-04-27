@@ -20,6 +20,7 @@ public abstract class Engine extends Input
 	public double HEIGHT;
 	public Keyboard keyboard;
 	public Mouse mouse;
+	protected Camera camera;
 	
 	protected UpdateCallback loop = new UpdateCallback()
 	{
@@ -35,6 +36,7 @@ public abstract class Engine extends Input
 	{
 		keyboard = new Keyboard(this);
 		mouse = new Mouse(this);
+		camera = new Camera(0, 0);
 	}
 	
 	/**
@@ -93,5 +95,14 @@ public abstract class Engine extends Input
 	public static void Log(String message)
 	{
 		System.out.println("ENGINE > " + message);
+	}
+	
+	/**
+	 * 
+	 * @return the camera
+	 */
+	public Camera getCamera()
+	{
+		return camera;
 	}
 }

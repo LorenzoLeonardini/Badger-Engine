@@ -78,6 +78,7 @@ public class Engine2D extends Engine implements Runnable
 	 */
 	private void update()
 	{
+		camera.update(getDelta());
 		physicsEngine.update();
 	}
 
@@ -93,7 +94,7 @@ public class Engine2D extends Engine implements Runnable
 			input();
 			update();
 			loop.update();
-			window.render();
+			window.render(camera);
 		}
 	}
 }

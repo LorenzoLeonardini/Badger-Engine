@@ -1,5 +1,6 @@
 package org.lorenzoleonardini.badger.physics;
 
+import org.lorenzoleonardini.badger.Camera;
 import org.lorenzoleonardini.badger.input.Input;
 import org.lorenzoleonardini.badger.texture.ObjectRender;
 
@@ -24,9 +25,9 @@ public class PhysicsObject extends Input
 
 	public boolean flip = false;
 
-	public Vector2D position;
-	private Vector2D velocity = new Vector2D(0, 0);
-	private Vector2D acceleration = new Vector2D(0, 0);
+	public Vector3D position;
+	private Vector3D velocity = new Vector3D(0, 0, 0);
+	private Vector3D acceleration = new Vector3D(0, 0, 0);
 
 	/**
 	 * Create an object in a certain position using a defined texture
@@ -36,7 +37,22 @@ public class PhysicsObject extends Input
 	 */
 	public PhysicsObject(double x, double y, ObjectRender objectRender, Material material)
 	{
-		this.position = new Vector2D(x, y);
+		this.position = new Vector3D(x, y, 0);
+		this.objectRender = objectRender;
+		this.material = material;
+		ObjectManager.addObject(this);
+	}
+
+	/**
+	 * Create an object in a certain position using a defined texture
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @param objectRender
+	 */
+	public PhysicsObject(double x, double y, double z, ObjectRender objectRender, Material material)
+	{
+		this.position = new Vector3D(x, y, z);
 		this.objectRender = objectRender;
 		this.material = material;
 		ObjectManager.addObject(this);
@@ -50,11 +66,14 @@ public class PhysicsObject extends Input
 	{
 		velocity.x += acceleration.x * delta;
 		velocity.y += acceleration.y * delta;
+		velocity.z += acceleration.z * delta;
 		position.x += velocity.x;
 		position.y += velocity.y;
+		position.z += velocity.z;
 
 		acceleration.x = 0;
 		acceleration.y = 0;
+		acceleration.z = 0;
 
 		// if (position.y >= 146)
 		// {
@@ -67,7 +86,7 @@ public class PhysicsObject extends Input
 	/**
 	 * @return the velocity
 	 */
-	public Vector2D velocity()
+	public Vector3D velocity()
 	{
 		return velocity;
 	}
@@ -84,18 +103,32 @@ public class PhysicsObject extends Input
 	}
 
 	/**
+	 * Apply a force to the object
+	 * @param force
+	 */
+	public void applyForce(Vector3D force)
+	{
+		double mass = material.getMass(objectRender.getVolume());
+		this.acceleration.x += force.x * mass;
+		this.acceleration.y += force.y * mass;
+		this.acceleration.z += force.z * mass;
+	}
+
+	/**
 	 * This method renders the object to the screen
 	 * @param pixels
 	 *            is the array of pixels
 	 * @param screenWidth
 	 *            is the width of the screen
+	 * @param camera
+	 *            the camera. You know. To move everything...
 	 */
-	public void render(int[] pixels, int screenWidth)
+	public void render(int[] pixels, int screenWidth, Camera camera)
 	{
 		int x = (int) position.x;
 		int y = (int) position.y;
 
-		objectRender.render(pixels, screenWidth, x, y, flip);
+		objectRender.render(pixels, screenWidth, x - (int) camera.position.x, y - (int) camera.position.y, flip);
 	}
 
 	/**
@@ -110,10 +143,11 @@ public class PhysicsObject extends Input
 	 * Set the position to the one defined by the vector vec
 	 * @param vec
 	 */
-	public void setPosition(Vector2D vec)
+	public void setPosition(Vector3D vec)
 	{
 		position.x = vec.x;
 		position.y = vec.y;
+		position.z = vec.z;
 	}
 
 	/**

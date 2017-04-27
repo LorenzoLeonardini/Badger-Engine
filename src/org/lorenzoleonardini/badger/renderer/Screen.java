@@ -3,6 +3,7 @@ package org.lorenzoleonardini.badger.renderer;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.lorenzoleonardini.badger.Camera;
 import org.lorenzoleonardini.badger.physics.ObjectManager;
 import org.lorenzoleonardini.badger.physics.PhysicsObject;
 import org.lorenzoleonardini.badger.window.Window;
@@ -38,15 +39,15 @@ public class Screen
 	/**
 	 * Clear the screen and render all the objects
 	 */
-	public void render()
+	public void render(Camera camera)
 	{
 		clear();
 
 		List<PhysicsObject> list = new ArrayList<PhysicsObject>(ObjectManager.getObjects());
-		
+
 		for (PhysicsObject o : list)
 		{
-			o.render(pixels, width);
+			o.render(pixels, width, camera);
 		}
 	}
 }

@@ -12,6 +12,7 @@ public abstract class Shape extends ObjectRender
 {
 	protected Color fill = Color.BLACK, stroke = Color.white;
 	protected int strokeSize = 0;
+	protected double alpha = 255;
 
 	public abstract void reload();
 
@@ -68,6 +69,49 @@ public abstract class Shape extends ObjectRender
 	}
 
 	/**
+	 * Change the fill color of the shape
+	 * @param color
+	 *            the Color
+	 * @param alpha
+	 *            the alpha channel
+	 */
+	public void fill(Color color, int alpha)
+	{
+		fill = color;
+		this.alpha = alpha;
+	}
+
+	/**
+	 * Change the fill color of the shape
+	 * @param r
+	 *            the r parameter of the color
+	 * @param g
+	 *            the g parameter of the color
+	 * @param b
+	 *            the b parameter of the color
+	 * @param alpha
+	 *            the alpha channel
+	 */
+	public void fill(int r, int g, int b, int alpha)
+	{
+		fill(new Color(r, g, b));
+		this.alpha = alpha;
+	}
+
+	/**
+	 * Change the fill color of the shape
+	 * @param rgb
+	 *            this value will be used as all of the RGB parameters
+	 * @param alpha
+	 *            the alpha channel
+	 */
+	public void fill(int rgb, int alpha)
+	{
+		fill(rgb, rgb, rgb);
+		this.alpha = alpha;
+	}
+
+	/**
 	 * Change the stroke color of the shape
 	 * @param color
 	 *            the Color
@@ -106,6 +150,17 @@ public abstract class Shape extends ObjectRender
 	{
 		x -= w / 2;
 		y -= h / 2;
+
+		int fg = fill.getRGB();
+		double fgR = (fg & 0x00FF0000) >> 16;
+		double fgG = (fg & 0x0000FF00) >> 8;
+		double fgB = (fg & 0xFF);
+
+		alpha /= 255;
+		fgR /= 255;
+		fgG /= 255;
+		fgB /= 255;
+		
 		for (int X = 0; X < w; X++)
 		{
 			for (int Y = 0; Y < h; Y++)
@@ -115,10 +170,34 @@ public abstract class Shape extends ObjectRender
 				if (this.pixels[X + Y * w] == 0xff00ff)
 					continue;
 				if (this.pixels[X + Y * w] == 0)
-					pixels[x + X + (y + Y) * width] = fill.getRGB();
+				{
+					int bg = pixels[x + X + (y + Y) * width];
+					double bgR = (bg & 0xFF0000) >> 16;
+					double bgG = (bg & 0x00FF00) >> 8;
+					double bgB = (bg & 0xFF);
+
+					bgR /= 255;
+					bgG /= 255;
+					bgB /= 255;
+
+					double a, r, g, b;
+
+					a = 1 - (1 - alpha) * (1 - 1); // 0.75
+					r = fgR * alpha / a + bgR * 1 * (1 - alpha) / a; // 0.67
+					g = fgG * alpha / a + bgG * 1 * (1 - alpha) / a; // 0.33
+					b = fgB * alpha / a + bgB * 1 * (1 - alpha) / a; // 0.00
+
+					r *= 255;
+					g *= 255;
+					b *= 255;
+					
+					pixels[x + X + (y + Y) * width] = new Color((int) r, (int) g, (int) b).getRGB();
+				}
 				if (this.pixels[X + Y * w] == 0xffffff)
 					pixels[x + X + (y + Y) * width] = stroke.getRGB();
 			}
 		}
+		
+		alpha *= 255;
 	}
 }

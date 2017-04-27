@@ -9,6 +9,7 @@ import java.awt.image.DataBufferInt;
 
 import javax.swing.JFrame;
 
+import org.lorenzoleonardini.badger.Camera;
 import org.lorenzoleonardini.badger.renderer.Screen;
 
 /**
@@ -69,7 +70,7 @@ public class Window extends Canvas
 	/**
 	 * Render to the screen
 	 */
-	public void render()
+	public void render(Camera camera)
 	{
 		BufferStrategy bs = getBufferStrategy();
 		if (bs == null)
@@ -78,7 +79,7 @@ public class Window extends Canvas
 			return;
 		}
 
-		screen.render();
+		screen.render(camera);
 
 		Graphics g = bs.getDrawGraphics();
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);

@@ -27,9 +27,6 @@ public class Keyboard implements KeyListener
 		this.engine = engine;
 	}
 
-	/**
-	 * Updates the keyboard lists
-	 */
 	public void update()
 	{
 		pressedKeys.removeAll(toRemove);

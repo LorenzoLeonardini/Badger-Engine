@@ -39,9 +39,6 @@ public class ObjectTexture extends ObjectRender
 		reload();
 	}
 	
-	/**
-	 * Reload the texture with the new scale
-	 */
 	private void reload()
 	{
 		this.pixels = new int[texture.pixels.length * scale * scale];

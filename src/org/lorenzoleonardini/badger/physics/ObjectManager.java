@@ -4,11 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The ObjectManager class, as the name suggest, manages all the objects in the
- * physics engine.
- * 
  * @author Lorenzo Leonardini
- *
  */
 public class ObjectManager
 {

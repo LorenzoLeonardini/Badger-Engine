@@ -1,10 +1,7 @@
 package org.lorenzoleonardini.badger.texture;
 
 /**
- * This class represents the shape circle
- * 
  * @author Lorenzo Leonardini
- *
  */
 public class Circle extends Shape
 {
@@ -21,10 +18,6 @@ public class Circle extends Shape
 		reload();
 	}
 
-	/**
-	 * Change the circle radius
-	 * @param r
-	 */
 	public void changeRadius(int r)
 	{
 		this.r = r;
@@ -36,9 +29,6 @@ public class Circle extends Shape
 		reload();
 	}
 
-	/**
-	 * @return the radius
-	 */
 	public int getRadius()
 	{
 		return r;

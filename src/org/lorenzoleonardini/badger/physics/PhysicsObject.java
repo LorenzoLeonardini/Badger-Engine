@@ -29,12 +29,6 @@ public class PhysicsObject extends Input
 	private Vector3D velocity = new Vector3D(0, 0, 0);
 	private Vector3D acceleration = new Vector3D(0, 0, 0);
 
-	/**
-	 * Create an object in a certain position using a defined texture
-	 * @param x
-	 * @param y
-	 * @param objectRender
-	 */
 	public PhysicsObject(double x, double y, ObjectRender objectRender, Material material)
 	{
 		this.position = new Vector3D(x, y, 0);
@@ -43,13 +37,6 @@ public class PhysicsObject extends Input
 		ObjectManager.addObject(this);
 	}
 
-	/**
-	 * Create an object in a certain position using a defined texture
-	 * @param x
-	 * @param y
-	 * @param z
-	 * @param objectRender
-	 */
 	public PhysicsObject(double x, double y, double z, ObjectRender objectRender, Material material)
 	{
 		this.position = new Vector3D(x, y, z);
@@ -83,18 +70,11 @@ public class PhysicsObject extends Input
 		// }
 	}
 
-	/**
-	 * @return the velocity
-	 */
 	public Vector3D velocity()
 	{
 		return velocity;
 	}
 
-	/**
-	 * Apply a force to the object
-	 * @param force
-	 */
 	public void applyForce(Vector2D force)
 	{
 		double mass = material.getMass(objectRender.getVolume());
@@ -102,10 +82,6 @@ public class PhysicsObject extends Input
 		this.acceleration.y += force.y * mass;
 	}
 
-	/**
-	 * Apply a force to the object
-	 * @param force
-	 */
 	public void applyForce(Vector3D force)
 	{
 		double mass = material.getMass(objectRender.getVolume());
@@ -139,10 +115,6 @@ public class PhysicsObject extends Input
 		flip = !flip;
 	}
 
-	/**
-	 * Set the position to the one defined by the vector vec
-	 * @param vec
-	 */
 	public void setPosition(Vector3D vec)
 	{
 		position.x = vec.x;
@@ -160,26 +132,16 @@ public class PhysicsObject extends Input
 		this.unmovable = unmovable;
 	}
 
-	/**
-	 * @return true if the object is unmovable
-	 */
 	public boolean isUnmovable()
 	{
 		return unmovable;
 	}
 
-	/**
-	 * Set if the object is affected by gravity or not.
-	 * @param affectedByGravity
-	 */
 	public void setAffectedByGravity(boolean affectedByGravity)
 	{
 		this.affectedByGravity = affectedByGravity;
 	}
 
-	/**
-	 * @return true if the object is affected by gravity
-	 */
 	public boolean isAffectedByGravity()
 	{
 		return affectedByGravity;
@@ -195,9 +157,6 @@ public class PhysicsObject extends Input
 		this.killWhenOutOfBounds = killWhenOutOfBounds;
 	}
 
-	/**
-	 * @return true if the object will be killed when out of bounds
-	 */
 	public boolean killWhenOutOfBounds()
 	{
 		return killWhenOutOfBounds;

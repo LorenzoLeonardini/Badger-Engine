@@ -5,10 +5,7 @@ import org.lorenzoleonardini.badger.physics.PhysicsEngine;
 import org.lorenzoleonardini.badger.window.Window;
 
 /**
- * This is the Engine2D class. It contains the loop and everything you use.
- * 
  * @author Lorenzo Leonardini
- *
  */
 public class Engine2D extends Engine implements Runnable
 {
@@ -28,14 +25,6 @@ public class Engine2D extends Engine implements Runnable
 
 	/**
 	 * Create the window and initialize all its components
-	 * @param width
-	 *            the window width
-	 * @param height
-	 *            the window height
-	 * @param scale
-	 *            the scale
-	 * @param title
-	 *            the window title
 	 */
 	public void createWindow(int width, int height, int scale, String title)
 	{
@@ -44,6 +33,7 @@ public class Engine2D extends Engine implements Runnable
 		window.addKeyListener(keyboard);
 		window.addMouseListener(mouse);
 		window.addMouseMotionListener(mouse);
+		window.addMouseWheelListener(mouse);
 	}
 
 	/**
@@ -82,18 +72,15 @@ public class Engine2D extends Engine implements Runnable
 		physicsEngine.update();
 	}
 
-	/**
-	 * The Loop
-	 */
 	public void run()
 	{
 		while (running)
 		{
 			if (fpsDelta())
 				continue;
-			input();
+			handleInput();
 			update();
-			loop.update();
+			loop.loop();
 			window.render(camera);
 		}
 	}

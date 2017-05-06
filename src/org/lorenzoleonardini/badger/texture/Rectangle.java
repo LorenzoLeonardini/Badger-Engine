@@ -1,10 +1,7 @@
 package org.lorenzoleonardini.badger.texture;
 
 /**
- * This class represent the shape of a rectangle
- * 
  * @author Lorenzo Leonardini
- *
  */
 public class Rectangle extends Shape
 {
@@ -18,10 +15,6 @@ public class Rectangle extends Shape
 		reload();
 	}
 	
-	/**
-	 * Change the width
-	 * @param w
-	 */
 	public void changeWidth(int w)
 	{
 		this.w = w;
@@ -31,18 +24,11 @@ public class Rectangle extends Shape
 		reload();
 	}
 
-	/**
-	 * @return the width
-	 */
 	public int getRadius()
 	{
 		return w;
 	}
 	
-	/**
-	 * Change the height
-	 * @param h
-	 */
 	public void changeHeight(int h)
 	{
 		this.h = h;
@@ -52,19 +38,11 @@ public class Rectangle extends Shape
 		reload();
 	}
 
-	/**
-	 * @return the height
-	 */
 	public int getHeight()
 	{
 		return h;
 	}
 	
-	/**
-	 * Change the size
-	 * @param w
-	 * @param h
-	 */
 	public void changeSize(int w, int h)
 	{
 		this.w = w;

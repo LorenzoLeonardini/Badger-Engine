@@ -3,10 +3,7 @@ package org.lorenzoleonardini.badger.texture;
 import java.awt.Color;
 
 /**
- * This class represent an abstract shape that can be rendered
- * 
  * @author Lorenzo Leonardini
- *
  */
 public abstract class Shape extends ObjectRender
 {
@@ -16,130 +13,60 @@ public abstract class Shape extends ObjectRender
 
 	public abstract void reload();
 
-	/**
-	 * Change the stroke weight of the shape
-	 * @param strokeSize
-	 */
 	public void strokeWeight(int strokeSize)
 	{
 		this.strokeSize = strokeSize;
 		reload();
 	}
 
-	/**
-	 * @return the stroke weight
-	 */
 	public int getStrokeWeight()
 	{
 		return strokeSize;
 	}
 
-	/**
-	 * Change the fill color of the shape
-	 * @param color
-	 *            the Color
-	 */
 	public void fill(Color color)
 	{
 		fill = color;
 	}
 
-	/**
-	 * Change the fill color of the shape
-	 * @param r
-	 *            the r parameter of the color
-	 * @param g
-	 *            the g parameter of the color
-	 * @param b
-	 *            the b parameter of the color
-	 */
 	public void fill(int r, int g, int b)
 	{
 		fill(new Color(r, g, b));
 	}
 
-	/**
-	 * Change the fill color of the shape
-	 * @param rgb
-	 *            this value will be used as all of the RGB parameters
-	 */
 	public void fill(int rgb)
 	{
 		fill(rgb, rgb, rgb);
 	}
 
-	/**
-	 * Change the fill color of the shape
-	 * @param color
-	 *            the Color
-	 * @param alpha
-	 *            the alpha channel
-	 */
 	public void fill(Color color, int alpha)
 	{
 		fill = color;
 		this.alpha = alpha;
 	}
 
-	/**
-	 * Change the fill color of the shape
-	 * @param r
-	 *            the r parameter of the color
-	 * @param g
-	 *            the g parameter of the color
-	 * @param b
-	 *            the b parameter of the color
-	 * @param alpha
-	 *            the alpha channel
-	 */
 	public void fill(int r, int g, int b, int alpha)
 	{
 		fill(new Color(r, g, b));
 		this.alpha = alpha;
 	}
 
-	/**
-	 * Change the fill color of the shape
-	 * @param rgb
-	 *            this value will be used as all of the RGB parameters
-	 * @param alpha
-	 *            the alpha channel
-	 */
 	public void fill(int rgb, int alpha)
 	{
 		fill(rgb, rgb, rgb);
 		this.alpha = alpha;
 	}
 
-	/**
-	 * Change the stroke color of the shape
-	 * @param color
-	 *            the Color
-	 */
 	public void stroke(Color color)
 	{
 		stroke = color;
 	}
 
-	/**
-	 * Change the stroke color of the shape
-	 * @param r
-	 *            the r parameter of the color
-	 * @param g
-	 *            the g parameter of the color
-	 * @param b
-	 *            the b parameter of the color
-	 */
 	public void stroke(int r, int g, int b)
 	{
 		stroke(new Color(r, g, b));
 	}
 
-	/**
-	 * Change the stroke color of the shape
-	 * @param rgb
-	 *            this value will be used as all of the RGB parameters
-	 */
 	public void stroke(int rgb)
 	{
 		stroke(rgb, rgb, rgb);

@@ -6,9 +6,7 @@ import org.lorenzoleonardini.badger.input.Mouse;
 import org.lorenzoleonardini.badger.physics.ObjectManager;
 
 /**
- * Abstract class of the Engine
  * @author Lorenzo Leonardini
- *
  */
 public abstract class Engine extends Input
 {
@@ -22,10 +20,10 @@ public abstract class Engine extends Input
 	public Mouse mouse;
 	protected Camera camera;
 	
-	protected UpdateCallback loop = new UpdateCallback()
+	protected Loop loop = new Loop()
 	{
 		@Override
-		public void update()
+		public void loop()
 		{
 		}
 	};
@@ -39,10 +37,7 @@ public abstract class Engine extends Input
 		camera = new Camera(0, 0);
 	}
 	
-	/**
-	 * Update keyboard and mouse
-	 */
-	protected void input()
+	protected void handleInput()
 	{
 		keyboard.update();
 		mouse.update();
@@ -75,9 +70,6 @@ public abstract class Engine extends Input
 		return b;
 	}
 
-	/**
-	 * @return the delta value
-	 */
 	public double getDelta()
 	{
 		return dt;
@@ -87,7 +79,7 @@ public abstract class Engine extends Input
 	 * Set what the engine must do every loop cycle
 	 * @param callback
 	 */
-	public void update(UpdateCallback callback)
+	public void loop(Loop callback)
 	{
 		loop = callback;
 	}
@@ -97,10 +89,6 @@ public abstract class Engine extends Input
 		System.out.println("ENGINE > " + message);
 	}
 	
-	/**
-	 * 
-	 * @return the camera
-	 */
 	public Camera getCamera()
 	{
 		return camera;

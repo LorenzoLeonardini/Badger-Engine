@@ -27,18 +27,12 @@ public class Screen
 
 	int div = 2000;
 
-	/**
-	 * Clear the screen
-	 */
 	private void clear()
 	{
 		for (int i = 0; i < pixels.length; i++)
 			pixels[i] = 0x383838;
 	}
 
-	/**
-	 * Clear the screen and render all the objects
-	 */
 	public void render(Camera camera)
 	{
 		clear();

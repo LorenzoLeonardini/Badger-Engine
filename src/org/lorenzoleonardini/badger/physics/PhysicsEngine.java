@@ -6,10 +6,7 @@ import java.util.List;
 import org.lorenzoleonardini.badger.Engine;
 
 /**
- * The PhysicsEngine class does all the actual physics of the engine
- * 
  * @author Lorenzo Leonardini
- *
  */
 public class PhysicsEngine
 {
@@ -24,9 +21,6 @@ public class PhysicsEngine
 		this.engine = engine;
 	}
 
-	/**
-	 * Updates the physics engine and, by doing that, updates all the objects
-	 */
 	public void update()
 	{
 		for (PhysicsObject o : ObjectManager.getObjects())

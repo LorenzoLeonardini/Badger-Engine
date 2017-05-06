@@ -3,6 +3,8 @@ package org.lorenzoleonardini.badger.input;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +17,7 @@ import org.lorenzoleonardini.badger.physics.PhysicsObject;
  * 
  * @author Lorenzo Leonardini
  */
-public class Mouse implements MouseListener, MouseMotionListener
+public class Mouse implements MouseListener, MouseMotionListener, MouseWheelListener
 {
 	private boolean onScreen = false;
 	private List<BUTTON> pressed = new ArrayList<BUTTON>();
@@ -26,6 +28,11 @@ public class Mouse implements MouseListener, MouseMotionListener
 	public static enum BUTTON
 	{
 		LEFT, WHEEL, RIGHT
+	}
+	
+	public static enum WHEEL
+	{
+		UP, DOWN
 	}
 
 	public Mouse(Engine engine)
@@ -83,10 +90,10 @@ public class Mouse implements MouseListener, MouseMotionListener
 		List<PhysicsObject> objs = new ArrayList<PhysicsObject>(ObjectManager.getObjects());
 		for (PhysicsObject o : objs)
 			for (org.lorenzoleonardini.badger.input.MouseEvent evt : o.mouseEvents)
-				evt.onMouseEnter();
+				evt.onMouseEnterWindow();
 
 		for (org.lorenzoleonardini.badger.input.MouseEvent evt : engine.mouseEvents)
-			evt.onMouseEnter();
+			evt.onMouseEnterWindow();
 	}
 
 	@Override
@@ -97,10 +104,10 @@ public class Mouse implements MouseListener, MouseMotionListener
 		List<PhysicsObject> objs = new ArrayList<PhysicsObject>(ObjectManager.getObjects());
 		for (PhysicsObject o : objs)
 			for (org.lorenzoleonardini.badger.input.MouseEvent evt : o.mouseEvents)
-				evt.onMouseLeave();
+				evt.onMouseLeaveWindow();
 
 		for (org.lorenzoleonardini.badger.input.MouseEvent evt : engine.mouseEvents)
-			evt.onMouseLeave();
+			evt.onMouseLeaveWindow();
 	}
 
 	@Override
@@ -191,5 +198,17 @@ public class Mouse implements MouseListener, MouseMotionListener
 	{
 		x = e.getX();
 		y = e.getY();
+	}
+
+	@Override
+	public void mouseWheelMoved(MouseWheelEvent e)
+	{
+		List<PhysicsObject> objs = new ArrayList<PhysicsObject>(ObjectManager.getObjects());
+		for (PhysicsObject o : objs)
+			for (org.lorenzoleonardini.badger.input.MouseEvent evt : o.mouseEvents)
+				evt.onWheelTurn(e.getWheelRotation() == -1 ? WHEEL.UP : WHEEL.DOWN);
+
+		for (org.lorenzoleonardini.badger.input.MouseEvent evt : engine.mouseEvents)
+			evt.onWheelTurn(e.getWheelRotation() == -1 ? WHEEL.UP : WHEEL.DOWN);
 	}
 }

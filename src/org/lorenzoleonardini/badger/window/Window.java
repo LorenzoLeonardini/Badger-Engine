@@ -13,11 +13,7 @@ import org.lorenzoleonardini.badger.Camera;
 import org.lorenzoleonardini.badger.renderer.Screen;
 
 /**
- * The Window class manage the window
- * it
- * 
  * @author Lorenzo Leonardini
- *
  */
 public class Window extends Canvas
 {
@@ -32,17 +28,6 @@ public class Window extends Canvas
 
 	private Screen screen;
 
-	/**
-	 * Initialize the window
-	 * @param width
-	 *            the window width
-	 * @param height
-	 *            the window height
-	 * @param scale
-	 *            the scale
-	 * @param title
-	 *            the window title
-	 */
 	public Window(int width, int height, int scale, String title)
 	{
 		WIDTH = width;
@@ -67,9 +52,6 @@ public class Window extends Canvas
 		frame.setVisible(true);
 	}
 
-	/**
-	 * Render to the screen
-	 */
 	public void render(Camera camera)
 	{
 		BufferStrategy bs = getBufferStrategy();

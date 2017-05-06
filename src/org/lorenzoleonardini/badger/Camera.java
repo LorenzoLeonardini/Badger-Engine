@@ -4,8 +4,6 @@ import org.lorenzoleonardini.badger.physics.Vector2D;
 import org.lorenzoleonardini.badger.physics.Vector3D;
 
 /**
- * The game camera :P
- * 
  * @author Lorenzo Leonardini
  */
 public class Camera
@@ -42,28 +40,17 @@ public class Camera
 		acceleration.z = 0;
 	}
 	
-	/**
-	 * @return the velocity
-	 */
 	public Vector3D velocity()
 	{
 		return velocity;
 	}
 
-	/**
-	 * Apply a force to the camera
-	 * @param force
-	 */
 	public void applyForce(Vector2D force)
 	{
 		this.acceleration.x += force.x;
 		this.acceleration.y += force.y;
 	}
 	
-	/**
-	 * Apply a force to the camera
-	 * @param force
-	 */
 	public void applyForce(Vector3D force)
 	{
 		this.acceleration.x += force.x;

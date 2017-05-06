@@ -3,10 +3,7 @@ package org.lorenzoleonardini.badger.physics;
 import java.util.Random;
 
 /**
- * The Vector2D class represent a 2D vector
- * 
  * @author Lorenzo Leonardini
- *
  */
 public class Vector2D
 {
@@ -21,7 +18,7 @@ public class Vector2D
 
 	/**
 	 * Create a random vector. The magnitude will be used as maximum value of
-	 * its component
+	 * its length
 	 * @param magnitude
 	 * @return the created Vector
 	 */
@@ -44,10 +41,6 @@ public class Vector2D
 		return randomVector(1);
 	}
 
-	/**
-	 * Add a vector to this one
-	 * @param vec
-	 */
 	public void addVector(Vector2D vec)
 	{
 		x += vec.x;
@@ -59,36 +52,23 @@ public class Vector2D
 		return "[x : " + x + " ; y :" + y + "]";
 	}
 
-	/**
-	 * @return a new Vector with the exact components of this one
-	 */
 	public Vector2D copy()
 	{
 		return new Vector2D(x, y);
 	}
 
-	/**
-	 * Invert the vector components
-	 */
 	public void invert()
 	{
 		x *= -1;
 		y *= -1;
 	}
 
-	/**
-	 * Multiply the length of the vector with a number
-	 * @param d
-	 */
 	public void multiply(double d)
 	{
 		x *= d;
 		y *= d;
 	}
 
-	/**
-	 * Normalize the vector. Its length will be 1
-	 */
 	public void normalize()
 	{
 		double length = Math.sqrt(x * x + y * y);

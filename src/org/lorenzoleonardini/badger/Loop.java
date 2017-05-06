@@ -5,7 +5,7 @@ package org.lorenzoleonardini.badger;
  * @author Lorenzo Leonardini
  *
  */
-public interface UpdateCallback
+public interface Loop
 {
-	public void update();
+	public void loop();
 }

@@ -23,12 +23,6 @@ public class Loader
 		in = null;
 	}
 
-	/**
-	 * Load a texture from a file
-	 * @param file
-	 *            is the file you load from
-	 * @return a Texture object
-	 */
 	public Texture loadTexture(File file)
 	{
 		try
@@ -45,12 +39,6 @@ public class Loader
 		return new Texture(in);
 	}
 
-	/**
-	 * Load a texture from a file path
-	 * @param path
-	 *            the path of the file
-	 * @return a Texture object
-	 */
 	public Texture loadTexture(String path)
 	{
 		return loadTexture(new File(path));

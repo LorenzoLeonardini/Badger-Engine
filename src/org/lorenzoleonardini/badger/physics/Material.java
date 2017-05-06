@@ -26,9 +26,6 @@ public class Material
 		this.transparent = transparent;
 	}
 
-	/**
-	 * @return true if the object is transparent
-	 */
 	public boolean isTransparent()
 	{
 		return transparent;

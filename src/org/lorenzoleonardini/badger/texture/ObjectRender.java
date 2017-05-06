@@ -41,9 +41,6 @@ public abstract class ObjectRender
 				volume++;
 	}
 
-	/**
-	 * @return the volume of the object
-	 */
 	public int getVolume()
 	{
 		return volume;

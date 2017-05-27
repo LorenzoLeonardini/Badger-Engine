@@ -78,6 +78,19 @@ public class Vector3D
 		y *= d;
 		z *= d;
 	}
+	
+	public void multiply(double x, double y)
+	{
+		this.x *= x;
+		this.y *= y;
+	}
+	
+	public void multiply(double x, double y, double z)
+	{
+		this.x *= x;
+		this.y *= y;
+		this.z *= z;
+	}
 
 	public void normalize()
 	{

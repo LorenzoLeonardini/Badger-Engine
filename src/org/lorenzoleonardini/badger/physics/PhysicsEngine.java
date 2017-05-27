@@ -10,7 +10,7 @@ import org.lorenzoleonardini.badger.Engine;
  */
 public class PhysicsEngine
 {
-	private Vector2D gravity = new Vector2D(0, 2);
+	private Vector2D gravity = new Vector2D(0, 5);
 
 	private List<PhysicsObject> toRemove = new ArrayList<PhysicsObject>();
 

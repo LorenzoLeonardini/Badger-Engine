@@ -61,6 +61,12 @@ public class PhysicsObject extends Input
 		acceleration.x = 0;
 		acceleration.y = 0;
 		acceleration.z = 0;
+		
+//		if(position.y > 900 / 16 * 9 - objectRender.h / 2)
+//		{
+//			velocity.multiply(material.getBounciness(), -1 * material.getBounciness());
+//			position.y = 900 / 16 * 9 - objectRender.h / 2;
+//		}
 
 		// if (position.y >= 146)
 		// {
@@ -77,17 +83,15 @@ public class PhysicsObject extends Input
 
 	public void applyForce(Vector2D force)
 	{
-		double mass = material.getMass(objectRender.getVolume());
-		this.acceleration.x += force.x * mass;
-		this.acceleration.y += force.y * mass;
+		this.acceleration.x += force.x;
+		this.acceleration.y += force.y;
 	}
 
 	public void applyForce(Vector3D force)
 	{
-		double mass = material.getMass(objectRender.getVolume());
-		this.acceleration.x += force.x * mass;
-		this.acceleration.y += force.y * mass;
-		this.acceleration.z += force.z * mass;
+		this.acceleration.x += force.x;
+		this.acceleration.y += force.y;
+		this.acceleration.z += force.z;
 	}
 
 	/**
@@ -160,5 +164,13 @@ public class PhysicsObject extends Input
 	public boolean killWhenOutOfBounds()
 	{
 		return killWhenOutOfBounds;
+	}
+	
+	/**
+	 * Just kill this object manually!
+	 */
+	public void kill()
+	{
+		ObjectManager.getObjects().remove(this);
 	}
 }

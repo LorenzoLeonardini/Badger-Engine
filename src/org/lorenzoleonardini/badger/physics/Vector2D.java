@@ -68,6 +68,12 @@ public class Vector2D
 		x *= d;
 		y *= d;
 	}
+	
+	public void multiply(double x, double y)
+	{
+		this.x *= x;
+		this.y *= y;
+	}
 
 	public void normalize()
 	{

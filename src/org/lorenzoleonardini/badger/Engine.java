@@ -1,5 +1,12 @@
 package org.lorenzoleonardini.badger;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+
+import org.json.JSONObject;
 import org.lorenzoleonardini.badger.input.Input;
 import org.lorenzoleonardini.badger.input.Keyboard;
 import org.lorenzoleonardini.badger.input.Mouse;
@@ -20,6 +27,8 @@ public abstract class Engine extends Input
 	public Mouse mouse;
 	protected Camera camera;
 	
+	private final String VERSION = "v0.2.4Betaa";
+
 	protected Loop loop = new Loop()
 	{
 		@Override
@@ -35,14 +44,38 @@ public abstract class Engine extends Input
 		keyboard = new Keyboard(this);
 		mouse = new Mouse(this);
 		camera = new Camera(0, 0);
+		try
+		{
+			checkVersion();
+		}
+		catch (IOException e)
+		{
+			System.out.println("Can't check for a newest version\n\n");
+		}
 	}
-	
+
+	private void checkVersion() throws IOException
+	{
+		URL url = new URL("https://api.github.com/repos/LorenzoLeonardini/Badger-Engine/releases/latest");
+		URLConnection conn = url.openConnection();
+		BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
+		JSONObject json = new JSONObject(br.readLine());
+		if(!VERSION.equals(json.getString("tag_name")))
+		{
+			System.out.println("NEW VERSION AVAILABLE! - \"" + json.getString("name") + "\"\n\t\t\t\tpublished in " + json.getString("published_at").split("T")[0] + ", by " + json.getJSONObject("author").getString("login"));
+			System.out.println(json.getString("body").replace("### Bug fixes:\r\n_none_", ""));
+		}
+
+		br.close();
+	}
+
 	protected void handleInput()
 	{
 		keyboard.update();
 		mouse.update();
 	}
-	
+
 	/**
 	 * Calculate the delta value and the fps
 	 * @return
@@ -88,7 +121,7 @@ public abstract class Engine extends Input
 	{
 		System.out.println("ENGINE > " + message);
 	}
-	
+
 	public Camera getCamera()
 	{
 		return camera;

@@ -31,4 +31,4 @@ I'd like to thanks a few people who have indirectly taught me a lot of the compe
   - Karl (ThinMatrix)
 
 Also libraries by:
-  - JSON: [https://github.com/stleary/JSON-java](stlearly)
+  - JSON: [stlearly](https://github.com/stleary/JSON-java)

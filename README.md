@@ -10,7 +10,8 @@ finished.
 
 The physics engine manage all the objects in the scene, with the possibility to apply gravity or other forces to them.
 
-<div align="center"><img src="http://lorenzoleonardini.altervista.org/engine.gif"></div>
+<div align="center"><img 
+src="http://lorenzoleonardini.altervista.org/github/Badger-Engine/engine-gravity.gif"></div>
 
 ## Licence
 You are free to:

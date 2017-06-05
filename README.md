@@ -1,4 +1,4 @@
-# <img src="http://lorenzoleonardini.altervista.org/github/Badger-Engine/logo128.png" style="vertical-align:middle"> <span>Badger Engine</span>
+# <img src="http://lorenzoleonardini.altervista.org/github/Badger-Engine/logo128.png" style="float: right;"> Badger Engine
 
 > ## _DISCLAIMER_
 > _This project is in development and I'm really starting with it. This means that at the moment it can't really 

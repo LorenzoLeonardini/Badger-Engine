@@ -3,9 +3,11 @@ package org.lorenzoleonardini.badger.window;
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.util.List;
 
 import javax.swing.JFrame;
 
@@ -49,7 +51,13 @@ public class Window extends Canvas
 		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
+		
 		frame.setVisible(true);
+	}
+	
+	public void setIconImages(List<Image> imgs)
+	{
+		frame.setIconImages(imgs);
 	}
 
 	public void render(Camera camera)

@@ -16,27 +16,39 @@ public class PhysicsEngine
 
 	private Engine engine;
 
+	public World world;
+
 	public PhysicsEngine(Engine engine)
 	{
 		this.engine = engine;
+		world = new World();
 	}
 
 	public void update()
 	{
-		for (PhysicsObject o : ObjectManager.getObjects())
+		List<PhysicsObject> objs = new ArrayList<PhysicsObject>(ObjectManager.getObjects());
+
+		for (PhysicsObject o : objs)
 		{
-			if (o.isAffectedByGravity())
+			if (o.isAffectedByGravity() && !o.isUnmovable())
 				o.applyForce(gravity);
 
 			o.update(engine.getDelta());
 
 			if (o.killWhenOutOfBounds())
-			{
 				if (o.position.y - o.objectRender.h >= engine.HEIGHT)
 					toRemove.add(o);
-			}
+
+			if (!toRemove.contains(o))
+				if (o.toBeKilled())
+					toRemove.add(o);
 		}
 
 		ObjectManager.getObjects().removeAll(toRemove);
+
+		for (PhysicsObject o : objs)
+		{
+			o.collide(world.getNeightbours(o));
+		}
 	}
 }

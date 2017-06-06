@@ -54,6 +54,13 @@ public class Vector3D
 		y += vec.y;
 		z += vec.z;
 	}
+	
+	public void subtractVector(Vector3D vec)
+	{
+		x -= vec.x;
+		y -= vec.y;
+		z -= vec.z;
+	}
 
 	public String toString()
 	{
@@ -95,6 +102,18 @@ public class Vector3D
 	public void normalize()
 	{
 		double length = Math.sqrt(x * x + y * y + z * z);
+		if(length == 0)
+			return;
 		multiply(1 / length);
+	}
+	
+	public double length()
+	{
+		return Math.sqrt(lengthSquare());
+	}
+	
+	public double lengthSquare()
+	{
+		return x * x + y * y + z * z;
 	}
 }

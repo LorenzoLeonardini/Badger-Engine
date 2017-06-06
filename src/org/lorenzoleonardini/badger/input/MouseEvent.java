@@ -38,6 +38,11 @@ public class MouseEvent
 
 	}
 	
+	public void onMouseDragged(int x, int y)
+	{
+
+	}
+	
 	/**
 	 * This code will be executed EVERY frame the mouse is in the screen
 	 * @param x

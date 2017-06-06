@@ -8,9 +8,11 @@ public class Material
 	private boolean transparent = false;
 
 	private float bounciness = 1;
+	private double density;
 	
-	public Material()
+	public Material(double density)
 	{
+		this.density = density;
 	}
 	
 	public void setBounciness(float bounciness)
@@ -25,6 +27,11 @@ public class Material
 	public float getBounciness()
 	{
 		return bounciness;
+	}
+
+	public double getDensity()
+	{
+		return density;
 	}
 
 	/**

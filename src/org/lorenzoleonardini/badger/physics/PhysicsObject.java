@@ -1,7 +1,10 @@
 package org.lorenzoleonardini.badger.physics;
 
+import java.util.List;
+
 import org.lorenzoleonardini.badger.Camera;
 import org.lorenzoleonardini.badger.input.Input;
+import org.lorenzoleonardini.badger.texture.Circle;
 import org.lorenzoleonardini.badger.texture.ObjectRender;
 
 /**
@@ -14,7 +17,7 @@ import org.lorenzoleonardini.badger.texture.ObjectRender;
  */
 public class PhysicsObject extends Input
 {
-	private Material material;
+	protected Material material;
 
 	public ObjectRender objectRender;
 	private boolean unmovable = false;
@@ -25,21 +28,21 @@ public class PhysicsObject extends Input
 
 	public boolean flip = false;
 
-	public Vector3D position;
-	private Vector3D velocity = new Vector3D(0, 0, 0);
-	private Vector3D acceleration = new Vector3D(0, 0, 0);
+	public Vector2D position;
+	private Vector2D velocity = new Vector2D(0, 0);
+	private Vector2D acceleration = new Vector2D(0, 0);
 
-	public PhysicsObject(double x, double y, ObjectRender objectRender, Material material)
-	{
-		this.position = new Vector3D(x, y, 0);
-		this.objectRender = objectRender;
-		this.material = material;
-		ObjectManager.addObject(this);
-	}
+	private double lifespan = -1;
+	private double life = 0;
 
-	public PhysicsObject(double x, double y, double z, ObjectRender objectRender, Material material)
+	private String name;
+
+	protected int gridXs[], gridYs[];
+
+	public PhysicsObject(String name, double x, double y, ObjectRender objectRender, Material material)
 	{
-		this.position = new Vector3D(x, y, z);
+		this.name = name;
+		this.position = new Vector2D(x, y);
 		this.objectRender = objectRender;
 		this.material = material;
 		ObjectManager.addObject(this);
@@ -53,30 +56,125 @@ public class PhysicsObject extends Input
 	{
 		velocity.x += acceleration.x * delta;
 		velocity.y += acceleration.y * delta;
-		velocity.z += acceleration.z * delta;
-		position.x += velocity.x;
-		position.y += velocity.y;
-		position.z += velocity.z;
 
 		acceleration.x = 0;
 		acceleration.y = 0;
-		acceleration.z = 0;
-		
-//		if(position.y > 900 / 16 * 9 - objectRender.h / 2)
-//		{
-//			velocity.multiply(material.getBounciness(), -1 * material.getBounciness());
-//			position.y = 900 / 16 * 9 - objectRender.h / 2;
-//		}
 
-		// if (position.y >= 146)
-		// {
-		// position.y = 146;
-		// velocity.y = 0;
-		// isOnGround = true;
-		// }
+		life += delta;
 	}
 
-	public Vector3D velocity()
+	public void collide(List<PhysicsObject> objs)
+	{
+		Vector2D movement = velocity.copy();
+		
+		for (PhysicsObject o : objs)
+		{
+			double mvmt = collisionDetection(o);
+			if (mvmt == -1)
+				continue;
+			else if (mvmt == -2)
+				break;
+			else
+				mvmt *= velocity.length();
+
+			movement.normalize();
+			movement.multiply(mvmt);
+
+			Vector2D other = o.velocity.copy();
+			other.normalize();
+			other.multiply(mvmt);
+			o.position.addVector(other);
+
+			// Calcolate bounce
+
+			Vector2D n = new Vector2D(o.position.x - position.x, o.position.y - position.y);
+			n.normalize();
+			double a1 = velocity.x * n.x + velocity.y * n.y;
+			double a2 = o.velocity.x * n.x + o.velocity.y * n.y;
+
+			double mass1 = getMass(), mass2 = o.getMass();
+			if (unmovable)
+				mass1 = 1000000;
+			if (o.unmovable)
+				mass2 = 1000000;
+
+			double optimizedP = (2 * (a1 - a2)) / (mass1 + mass2);
+
+			n.multiply(optimizedP);
+
+			Vector2D n2 = n.copy();
+
+			if (!unmovable)
+			{
+				n.multiply(mass2);
+				velocity.subtractVector(n);
+//				velocity.multiply(material.getBounciness());
+			}
+
+			if (!o.unmovable)
+			{
+				n2.multiply(mass1);
+				o.velocity.addVector(n2);
+//				o.velocity.multiply(o.material.getBounciness());
+			}
+
+			break;
+		}
+		position.addVector(movement);
+	}
+
+	public double collisionDetection(PhysicsObject obj)
+	{
+		if (!(objectRender instanceof Circle) || !(obj.objectRender instanceof Circle))
+			return -1;
+		
+		Vector2D v = velocity.copy();
+		v.subtractVector(obj.velocity);
+		
+		double r = objectRender.w / 2;
+		double oR = obj.objectRender.w / 2;
+
+		// Check
+		// http://www.gamasutra.com/view/feature/131424/pool_hall_lessons_fast_accurate_.php
+		// for the theory
+
+		// Check nr 1
+		Vector2D c = new Vector2D(obj.position.x - position.x, obj.position.y - position.y);
+		double dist = c.length();
+		
+		dist -= r + oR;
+
+		if (v.length() < dist)
+			return -2;
+
+		// Check nr 2
+		if (v.x * c.x + v.y * c.y <= 0)
+			return -1;
+
+		// Check nr 3
+		Vector2D n = v.copy();
+		n.normalize();
+		double d = n.x * c.x + n.y * c.y;
+		double f = c.lengthSquare() - d * d;
+		if (f > (r + oR) * (r + oR))
+			return -1;
+
+		// Find the actual movement
+		double t = (r + oR) * (r + oR) - f;
+		// Security check
+//		if (t < 0)
+//			return -1;
+
+		double distance = d - Math.sqrt(t);
+
+		// Check nr 4
+		if (v.lengthSquare() < distance * distance)
+			return -1;
+
+		return distance / v.length();
+	}
+
+	public Vector2D velocity()
 	{
 		return velocity;
 	}
@@ -91,7 +189,6 @@ public class PhysicsObject extends Input
 	{
 		this.acceleration.x += force.x;
 		this.acceleration.y += force.y;
-		this.acceleration.z += force.z;
 	}
 
 	/**
@@ -123,7 +220,6 @@ public class PhysicsObject extends Input
 	{
 		position.x = vec.x;
 		position.y = vec.y;
-		position.z = vec.z;
 	}
 
 	/**
@@ -165,12 +261,32 @@ public class PhysicsObject extends Input
 	{
 		return killWhenOutOfBounds;
 	}
-	
+
 	/**
 	 * Just kill this object manually!
 	 */
 	public void kill()
 	{
 		ObjectManager.getObjects().remove(this);
+	}
+
+	public void setLifespan(double lifespan)
+	{
+		this.lifespan = lifespan;
+	}
+
+	protected boolean toBeKilled()
+	{
+		return lifespan != -1 && life >= lifespan;
+	}
+	
+	public double getMass()
+	{
+		return material.getDensity() * objectRender.volume;
+	}
+
+	public String toString()
+	{
+		return name;
 	}
 }

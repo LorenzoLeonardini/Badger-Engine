@@ -1,3 +1,5 @@
+<div align="center"><img src="http://lorenzoleonardini.altervista.org/github/Badger-Engine/logo128.png" width=64 style="float:right;"></div>
+
 # Badger Engine
 
 > ## _DISCLAIMER_

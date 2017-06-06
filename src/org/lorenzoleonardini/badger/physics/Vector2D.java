@@ -46,6 +46,12 @@ public class Vector2D
 		x += vec.x;
 		y += vec.y;
 	}
+	
+	public void subtractVector(Vector2D vec)
+	{
+		x -= vec.x;
+		y -= vec.y;
+	}
 
 	public String toString()
 	{
@@ -78,6 +84,18 @@ public class Vector2D
 	public void normalize()
 	{
 		double length = Math.sqrt(x * x + y * y);
+		if(length == 0)
+			return;
 		multiply(1 / length);
+	}
+	
+	public double length()
+	{
+		return Math.sqrt(lengthSquare());
+	}
+	
+	public double lengthSquare()
+	{
+		return x * x + y * y;
 	}
 }

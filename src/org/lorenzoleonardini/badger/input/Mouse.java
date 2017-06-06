@@ -190,9 +190,15 @@ public class Mouse implements MouseListener, MouseMotionListener, MouseWheelList
 	@Override
 	public void mouseDragged(MouseEvent e)
 	{
-		// TODO: MOUSE DRAGGED
-	}
+		List<PhysicsObject> objs = new ArrayList<PhysicsObject>(ObjectManager.getObjects());
+		for (PhysicsObject o : objs)
+			for (org.lorenzoleonardini.badger.input.MouseEvent evt : o.mouseEvents)
+				evt.onMouseDragged(x, y);
 
+		for (org.lorenzoleonardini.badger.input.MouseEvent evt : engine.mouseEvents)
+			evt.onMouseDragged(x, y);
+	}
+	
 	@Override
 	public void mouseMoved(MouseEvent e)
 	{

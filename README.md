@@ -35,3 +35,10 @@ I'd like to thanks a few people who have indirectly taught me a lot of the compe
 
 Also libraries by:
   - JSON: [stlearly](https://github.com/stleary/JSON-java)
+irectly taught me a lot of the competences I needed to make this project:
+  - Yan Chernikov
+  - Daniel Shiffman
+  - Karl (ThinMatrix)
+
+Also libraries by:
+  - JSON: [stlearly](https://github.com/stleary/JSON-java)

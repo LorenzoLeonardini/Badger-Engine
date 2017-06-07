@@ -1,15 +1,25 @@
 package org.lorenzoleonardini.badger.window;
 
-import java.awt.Canvas;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferInt;
-import java.util.List;
+import static org.lwjgl.glfw.GLFW.GLFW_CONTEXT_VERSION_MAJOR;
+import static org.lwjgl.glfw.GLFW.GLFW_CONTEXT_VERSION_MINOR;
+import static org.lwjgl.glfw.GLFW.GLFW_OPENGL_CORE_PROFILE;
+import static org.lwjgl.glfw.GLFW.GLFW_OPENGL_FORWARD_COMPAT;
+import static org.lwjgl.glfw.GLFW.GLFW_OPENGL_PROFILE;
+import static org.lwjgl.glfw.GLFW.GLFW_SAMPLES;
+import static org.lwjgl.glfw.GLFW.GLFW_TRUE;
+import static org.lwjgl.glfw.GLFW.glfwCreateWindow;
+import static org.lwjgl.glfw.GLFW.glfwInit;
+import static org.lwjgl.glfw.GLFW.glfwMakeContextCurrent;
+import static org.lwjgl.glfw.GLFW.glfwPollEvents;
+import static org.lwjgl.glfw.GLFW.glfwSwapBuffers;
+import static org.lwjgl.glfw.GLFW.glfwTerminate;
+import static org.lwjgl.glfw.GLFW.glfwWindowHint;
+import static org.lwjgl.glfw.GLFW.glfwWindowShouldClose;
+import static org.lwjgl.opengl.GL.createCapabilities;
+import static org.lwjgl.system.MemoryUtil.NULL;
 
-import javax.swing.JFrame;
+import java.awt.Image;
+import java.util.List;
 
 import org.lorenzoleonardini.badger.Camera;
 import org.lorenzoleonardini.badger.renderer.Screen;
@@ -17,63 +27,59 @@ import org.lorenzoleonardini.badger.renderer.Screen;
 /**
  * @author Lorenzo Leonardini
  */
-public class Window extends Canvas
+public class Window
 {
-	private static final long serialVersionUID = 1L;
-
 	public final int WIDTH, HEIGHT;
-
-	private JFrame frame;
-
-	private BufferedImage image;
-	private int[] pixels;
 
 	private Screen screen;
 
-	public Window(int width, int height, int scale, String title)
+	public Window(int width, int height, String title)
 	{
 		WIDTH = width;
 		HEIGHT = height;
-		image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
-		pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
-
-		screen = new Screen(width, height, pixels, this);
 		
-		Dimension size = new Dimension(width * scale, height * scale);
-		setPreferredSize(size);
-
-		setFocusable(true);
-
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.setTitle(title);
-		frame.add(this);
-		frame.pack();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
+		if(!glfwInit())
+		{
+			System.err.println("Unable to initialize GLFW");
+			System.exit(-1);
+		}
 		
-		frame.setVisible(true);
+		// Set 4x antialiasing
+		glfwWindowHint(GLFW_SAMPLES, 4);
+		// Set OpenGL 3.3
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+		// "To make MacOS happy, should not be needed"
+		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
+		// Don't want old OpenGL
+		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+		
+		// Open a window and create its OpenGL context
+		long window = glfwCreateWindow(width, height, title, NULL, NULL);
+		if(window == NULL)
+		{
+			System.err.println("Failed to open GLFW window");
+			glfwTerminate();
+			System.exit(-1);
+		}
+		glfwMakeContextCurrent(window);
+		
+		// Seems to be needed to let OpenGL and GLFW interact
+		createCapabilities();
+		
+		while(!glfwWindowShouldClose(window))
+		{
+			glfwSwapBuffers(window);
+			glfwPollEvents();
+		}
 	}
 	
 	public void setIconImages(List<Image> imgs)
 	{
-		frame.setIconImages(imgs);
 	}
 
 	public void render(Camera camera)
 	{
-		BufferStrategy bs = getBufferStrategy();
-		if (bs == null)
-		{
-			createBufferStrategy(3);
-			return;
-		}
-
-		screen.render(camera);
-
-		Graphics g = bs.getDrawGraphics();
-		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
-		g.dispose();
-		bs.show();
+//		screen.render(camera);
 	}
 }

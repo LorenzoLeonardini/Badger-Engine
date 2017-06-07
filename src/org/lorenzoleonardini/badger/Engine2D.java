@@ -33,10 +33,10 @@ public class Engine2D extends Engine implements Runnable
 	/**
 	 * Create the window and initialize all its components
 	 */
-	public void createWindow(int width, int height, int scale, String title)
+	public void createWindow(int width, int height, String title)
 	{
 		this.HEIGHT = height;
-		window = new Window(width, height, scale, title);
+		window = new Window(width, height, title);
 		
 		try
 		{
@@ -55,11 +55,11 @@ public class Engine2D extends Engine implements Runnable
 		{
 			e.printStackTrace();
 		}
-		
-		window.addKeyListener(keyboard);
-		window.addMouseListener(mouse);
-		window.addMouseMotionListener(mouse);
-		window.addMouseWheelListener(mouse);		
+		//TODO: input
+//		window.addKeyListener(keyboard);
+//		window.addMouseListener(mouse);
+//		window.addMouseMotionListener(mouse);
+//		window.addMouseWheelListener(mouse);		
 	}
 	
 	public void setIconImages(List<Image> imgs)

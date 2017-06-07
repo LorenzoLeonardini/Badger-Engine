@@ -1,0 +1,99 @@
+body 
+{
+	background: #fff;
+	padding-top: 50px;
+}
+
+header 
+{
+	background: #1B2426;
+	color: #fff;
+	height: 48px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	transition: top 0.2s ease-in-out;
+	width: 100%;
+}
+
+#title
+{
+	font-size: 40px;
+	font-family: sans-serif;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+#title img
+{
+	margin-bottom: -17px; margin-right: 20px;
+}
+
+.content
+{
+	width: 1100px;
+	text-align: left;
+	font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+	line-height: 1.5;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	color: #1b2426;
+}
+
+a
+{
+	color: #0275d8;
+	text-decoration: none;
+}
+
+a:focus, a:hover
+{
+	color: #014c8c;
+	text-decoration: underline;
+}
+
+em
+{
+	opacity: .7;
+}
+
+h3
+{
+	font-size: 25px;
+	font-family: Open Sans;
+	margin: 0;
+	margin-bottom: -15px;
+	font-weight: 100;
+}
+
+@media only screen and (max-width: 1200px) 
+{
+	.content
+	{
+		width: 930px;
+	}
+}
+
+@media only screen and (max-width: 990px) 
+{
+	.content
+	{
+		width: 670px;
+	}
+}
+
+@media only screen and (max-width: 770px) 
+{
+	.content
+	{
+		width: 520px;
+	}
+}
+
+@media only screen and (max-width: 575px) 
+{
+	.content
+	{
+		width: 100%;
+	}
+}

@@ -20,6 +20,85 @@ header
   top: -48px; // same as header height. use variables in LESS/SASS
 }
 
+.headerLeft
+{
+	text-align: left;
+	display: inline-block;
+}
+
+.headerRight
+{
+	text-align: right;
+	width: calc(100% - 227px);
+	padding-right: 3px;
+	display: inline-block;
+}
+
+.headerLeft button
+{
+	font-weight: 600;
+}
+
+.headerRight button
+{
+	font-weight: 100;
+}
+
+button
+{
+	font-size: 20px;
+	font-family: Open Sans;
+	margin-top: 7px;
+	margin-bottom: 20px;
+	background: none;
+	border:none;
+	color: #fff;
+	outline: none;
+    position:relative;
+    cursor: pointer;
+}
+
+button.current
+{
+	color: yellow;
+}
+
+button::before 
+{
+	content: "";
+	position: absolute;
+	width: calc(100% - 14px);
+	height: 2px;
+	bottom: 2px;
+	left: 7px;
+	background: #fff;
+	visibility: hidden;
+	transform: scaleX(0);
+	transition: .25s linear;
+	display: block;
+}
+
+button.current::before
+{
+	background: yellow;
+	visibility: visible;
+	transform: scaleX(1);
+}
+
+button:hover::before
+{
+	visibility: visible;
+	transform: scaleX(1);
+}
+
+.headerLeft img
+{
+	margin-top: 8px;
+	margin-left: 8px;
+	margin-bottom: -9px;
+	margin-right: 5px;
+}
+
 #title
 {
 	font-size: 35px;

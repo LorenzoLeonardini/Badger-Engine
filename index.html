@@ -8,44 +8,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script type="text/javascript">
-		var lastScrollTop = 0;
-		var delta = 5;
-		var navbarHeight = $('header').outerHeight();
-		// on scroll, let the interval function know the user has scrolled
-		$(window).scroll(function(event)
-		{
-			hasScrolled();
-		});
-
-		function hasScrolled() 
-		{
-			var st = $(this).scrollTop();
-			if (Math.abs(lastScrollTop - st) <= delta)
-				return;
-
-			// If current position > last position AND scrolled past navbar...
-			if (st > lastScrollTop && st > navbarHeight)
-			{
-				// Scroll Down
-				$('header').removeClass('nav-down').addClass('nav-up');
-			}
-			else
-			{
-				// Scroll Up
-				// If did not scroll past the document (possible on mac)...
-				if(st + $(window).height() < $(document).height())
-					$('header').removeClass('nav-up').addClass('nav-down');
-			}
-
-			lastScrollTop = st;
-		}
-	</script>
 </head>
 <body>
-<header>
-	THIS-IS-TEMPORARY--THIS-IS-TEMPORARY--THIS-IS-TEMPORARY--THIS-IS-TEMPORARY--THIS-IS-TEMPORARY--THIS-IS-TEMPORARY
-</header>
 <center>
 <div class="content">
 	<div id="title">
@@ -117,8 +81,6 @@
 	</p>
 </div>
 </center>
-<footer class="gradient">
-BANANA
-</footer>
+<script type="text/javascript" src="utils.js"></script>
 </body>
 </html>

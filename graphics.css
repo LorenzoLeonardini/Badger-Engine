@@ -12,8 +12,12 @@ header
 	position: fixed;
 	top: 0;
 	left: 0;
-	transition: top 0.2s ease-in-out;
+	transition: top 0.3s ease-in-out;
 	width: 100%;
+}
+
+.nav-up {
+  top: -48px; // same as header height. use variables in LESS/SASS
 }
 
 #title
@@ -29,7 +33,7 @@ header
 	margin-bottom: -19px; margin-right: 15px;
 }
 
-.content
+.content, .gradient
 {
 	width: 1100px;
 	text-align: left;
@@ -77,11 +81,70 @@ video
 	height: 393px;
 }
 
+ul
+{
+	margin-top: -12px;
+	margin-bottom: 3px;
+}
+
+ul ul
+{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+strong
+{
+	font-weight: 600;
+}
+
+.gradient
+{
+	background: #1B2426; /* For browsers that do not support gradients */
+	background: -webkit-radial-gradient(circle, #1B2426, #3A4D52); /* Safari */
+	background: -o-radial-gradient(circle, #1B2426, #3A4D52); /* Opera 11.6 to 12.0 */
+	background: -moz-radial-gradient(circle, #1B2426, #3A4D52); /* Firefox 3.6 to 15 */
+	background: radial-gradient(circle, #1B2426, #3A4D52); /* Standard syntax */
+	color: #fff;
+	position: relative;
+	top: 8px;
+	left: -8px;
+	width: calc(1100px);
+	padding-left: calc(50% - 542px);
+	padding-right: calc(50% - 542px);
+	padding-top: 30px;
+	padding-bottom: 28px;
+}
+
+.gradient h3
+{
+	font-size: 33px;
+}
+
+div.gradient
+{
+	margin-bottom: 30px;
+}
+
+footer 
+{
+	margin-top: 50px;
+	height: 100px;
+	margin-bottom: -30px;
+}
+
 @media only screen and (max-width: 1200px) 
 {
 	.content
 	{
 		width: 930px;
+	}
+
+	.gradient
+	{
+		width: calc(930px);
+		padding-left: calc(50% - 457px);
+		padding-right: calc(50% - 457px);
 	}
 }
 
@@ -91,6 +154,13 @@ video
 	{
 		width: 670px;
 	}
+
+	.gradient
+	{
+		width: calc(670px);
+		padding-left: calc(50% - 327px);
+		padding-right: calc(50% - 327px);
+	}
 }
 
 @media only screen and (max-width: 770px) 
@@ -98,6 +168,13 @@ video
 	.content
 	{
 		width: 520px;
+	}
+
+	.gradient
+	{
+		width: calc(520px);
+		padding-left: calc(50% - 252px);
+		padding-right: calc(50% - 252px);
 	}
 
 	video
@@ -112,6 +189,13 @@ video
 	.content
 	{
 		width: 100%;
+	}
+
+	.gradient
+	{
+		width: 100%;
+		padding-left: 8px;
+		padding-right: 8px;
 	}
 
 	video

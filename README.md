@@ -23,7 +23,7 @@ You are free to:
   
 **If you want to use this Engine for a commercial project you must ask me for a permission.**
 
-_**Any other used that is not specified here is ABSOLUTELY NOT ALLOWED and you MUST NOT do it.**_
+_**Any other usage that is not specified here is ABSOLUTELY NOT ALLOWED and you MUST NOT do it.**_
 
 _If you need to discuss this very strict licence you can contact me at    **lorenzo_leonardini [ @ ] yahoo . it**_
 

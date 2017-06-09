@@ -196,9 +196,13 @@ button:hover::before
 	margin-bottom: -19px; margin-right: 15px;
 }
 
-.content, .gradient
+.content
 {
 	width: 1100px;
+}
+
+.content, .gradient
+{
 	text-align: left;
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 	line-height: 1.5;
@@ -264,22 +268,22 @@ strong
 .gradient
 {
 	background: #1B2426; /* For browsers that do not support gradients */
-	background: -webkit-radial-gradient(circle, #1B2426, #3A4D52); /* Safari */
-	background: -o-radial-gradient(circle, #1B2426, #3A4D52); /* Opera 11.6 to 12.0 */
-	background: -moz-radial-gradient(circle, #1B2426, #3A4D52); /* Firefox 3.6 to 15 */
-	background: radial-gradient(circle, #1B2426, #3A4D52); /* Standard syntax */
+	background: -webkit-radial-gradient(circle, #1B2426 50%, #3A4D52 100%, #3A4D52); /* Safari */
+	background: -o-radial-gradient(circle, #1B2426 50%, #3A4D52 100%, #3A4D52); /* Opera 11.6 to 12.0 */
+	background: -moz-radial-gradient(circle, #1B2426 50%, #3A4D52 100%, #3A4D52); /* Firefox 3.6 to 15 */
+	background: radial-gradient(circle, #1B2426 50%, #3A4D52 100%, #3A4D52); /* Standard syntax */
 	color: #fff;
 	position: relative;
 	top: 8px;
 	left: -8px;
+	padding-top: 30px;
+	padding-bottom: 28px;
 	width: calc(1100px);
 	padding-left: calc(50% - 542px);
 	padding-right: calc(50% - 542px);
-	padding-top: 30px;
-	padding-bottom: 28px;
 }
 
-.gradient h3
+.gradient:not(footer) h3
 {
 	font-size: 33px;
 }
@@ -289,11 +293,60 @@ div.gradient
 	margin-bottom: 30px;
 }
 
-footer 
+footer
 {
 	margin-top: 50px;
-	height: 100px;
 	margin-bottom: -30px;
+}
+
+.footerContainer
+{
+	column-count: 2;
+	width: 600px;
+	text-align: left;
+	margin-left: calc(50% - 300px);
+}
+
+footer a
+{
+	color: inherit;
+	text-decoration: none;
+}
+
+footer a:hover
+{
+	text-decoration: underline;
+	color: inherit;
+}
+
+footer h3
+{
+	margin-bottom: 0px;
+	font-size: 30px;
+	color: #6C8F91;
+}
+
+footer div
+{
+	margin-top: 5px;
+}
+
+.developedBy
+{
+	color: #6C8F91;
+	text-align: center;
+	font-size: 15px;
+	margin: 30px;
+}
+
+.developedBy a
+{
+	color: #fff;
+}
+
+.developedBy a:hover
+{
+	color: #fff;
 }
 
 @media only screen and (max-width: 1200px) 
@@ -323,6 +376,10 @@ footer
 		width: calc(670px);
 		padding-left: calc(50% - 327px);
 		padding-right: calc(50% - 327px);
+		background: -webkit-radial-gradient(circle 150vw, #1B2426, #3A4D52); /* Safari */
+		background: -o-radial-gradient(circle 150vw, #1B2426, #3A4D52); /* Opera 11.6 to 12.0 */
+		background: -moz-radial-gradient(circle 150vw, #1B2426, #3A4D52); /* Firefox 3.6 to 15 */
+		background: radial-gradient(circle 150vw, #1B2426, #3A4D52); /* Standard syntax */
 	}
 
 	.headerRight
@@ -354,6 +411,19 @@ footer
 	{
 		width: 520px;
 		height: 292px;
+	}
+
+	.footerContainer
+	{
+		width: calc(100% - 20px);
+		margin-left: 0px;
+		padding-left: 20px;
+		column-count: 1;
+	}
+
+	.footerContainer h3
+	{
+		margin-top: 30px;
 	}
 }
 

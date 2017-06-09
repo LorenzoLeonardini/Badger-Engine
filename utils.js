@@ -9,17 +9,33 @@ $(function()
 var lastScrollTop = 0;
 var delta = 5;
 var navbarHeight = $('header').outerHeight();
+var didScroll;
 // on scroll, let the interval function know the user has scrolled
 $(window).scroll(function(event)
 {
-	hasScrolled();
+	didScroll = true;
 });
+// run hasScrolled() and reset didScroll status
+setInterval(function() 
+{
+	if (didScroll) 
+	{
+		hasScrolled();
+		didScroll = false;
+	}
+}, 100);
 
 function hasScrolled() 
 {
 	var st = $(this).scrollTop();
 	if (Math.abs(lastScrollTop - st) <= delta)
 		return;
+
+	if ($('#cover').hasClass("visible"))
+	{
+		lastScrollTop = st;
+		return;
+	}
 
 	// If current position > last position AND scrolled past navbar...
 	if (st > lastScrollTop && st > navbarHeight)

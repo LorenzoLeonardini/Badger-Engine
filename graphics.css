@@ -140,7 +140,7 @@ button
 	color: yellow;
 }
 
-button:not(.headerMobile, .menuClose, .current)::before
+button.animate::before
 {
 	content: "";
 	position: absolute;
@@ -151,7 +151,7 @@ button:not(.headerMobile, .menuClose, .current)::before
 	background: #fff;
 	visibility: hidden;
 	transform: scaleX(0);
-	transition: .25s linear;
+	transition: .2s linear;
 	display: block;
 }
 

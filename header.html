@@ -1,8 +1,8 @@
 <div class="headerLeft">
-<img src="https://lorenzoleonardini.altervista.org/github/Badger-Engine/logo32.png"><a href="/Badger-Engine"><button>BADGER-ENGINE</button></a>
+<img src="https://lorenzoleonardini.altervista.org/github/Badger-Engine/logo32.png"><a href="/Badger-Engine"><button class="animate">BADGER-ENGINE</button></a>
 </div>
 <div class="headerRight">
-<a href="/Badger-Engine"><button class="menuHome">HOME</button></a><button class="menuDocumentation">DOCUMENTATION</button><a href="https://github.com/LorenzoLeonardini/Badger-Engine" target="_blank"><button class="menuSource">SOURCE</button></a>
+<a href="/Badger-Engine"><button class="menuHome animate">HOME</button></a><button class="menuDocumentation animate">DOCUMENTATION</button><a href="https://github.com/LorenzoLeonardini/Badger-Engine" target="_blank"><button class="menuSource animate">SOURCE</button></a>
 </div>
 <div id="cover" class="hidden"><script type="text/javascript">
 document.body.onload = function()
@@ -25,6 +25,7 @@ $(".headerMobile").focusout(function()
 	$(".closeMenu").css("left", "calc(100% - 55px + 200px)");
 });
 
+$(currentPage).removeClass("animate");
 $(currentPage).addClass("current");
 }
 </script></div>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" type="image/png" href="https://lorenzoleonardini.altervista.org/github/Badger-Engine/logo128.png">
+	<title>Badger-Engine | Objects</title>
+	<link href='https://fonts.googleapis.com/css?family=Roboto|Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/Badger-Engine/graphics.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="/Badger-Engine/highlight.js/styles/dracula.css">
+	<script src="/Badger-Engine/highlight.js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<center>
+<div class="content">
+	<h3>Objects</h3>
+	<p>
+		Every single object in your game must correspond to a PhysicsObject in the Engine. PhysicsObjects are what can be rendered and updated by the PhysicsEngine. 
+	</p>
+	<p>
+		Creating them is really easy. The constructor takes in a bunch of parameters: the first two are the x and y coordinates in the world, than we have an ObjectRender and a Material. The ObjectRender is what is actually rendered by the Engine; it can be a Shape, like a Circle or a Rectangle, or a Texture. The Material is a class used by the PhysicsEngine to handle collisions. Let's continue creating a Circle <i>c</i> with a radius of 20 and a Material <i>m</i>. The Material constructor needs the material density as a parameter. For now let's set it to 1. The code will be
+	</p>
+</div>
+
+<div class="code">
+<pre>
+<code>
+Circle c = new Circle(20);
+Material m = new Material(1);
+PhysicsObject obj = new PhysicsObject(450, 250, c, m);
+</code>
+</pre>
+</div>
+
+<div class="content">
+	<p>
+		As default every PhysicsObject is affected by gravity, can move and be moved and can collide with every other object. All these settings can be changed by changing the value of the following boolean variables:
+	</p>
+</div>
+
+<div class="code">
+<pre>
+<code>
+// Change if the object is affected by gravity
+obj.setAffectedByGravity(false);
+// Change if the object can move or be moved
+obj.setUnmovable(true);
+// Change if the object can collide. In this particular case this is a property of its material
+m.setTransparent(true);
+</code>
+</pre>
+</div>
+
+<div class="content">
+	<p>
+		Let's talk about the life of our object.<br />
+		The quickest way to destroy an object is "killing" it. However we can also set a lifespan, in milliseconds.
+	</p>
+	<p>
+		<strong>IMPORTANT: </strong> for debugging reasons every object is destroyed when its y coordinate is greater than window's height. You can turn off this "feature".
+	</p>
+</div>
+
+<div class="code">
+<pre>
+<code>
+// Kill the object
+obj.kill();
+// Set a lifespan
+obj.setLifespan(2500);
+// Turning of automatic killing y > widow height
+obj.setKillWhenOutOfBounds(false);
+</code>
+</pre>
+</div>
+
+<div class="content">
+	<p>
+		There's a last thing to mention. Remember the object counter logged in the console? It tells you how many objects are still alive and so processed by the PhysicsEngine. This feature allows you to check if you are keeping alive useless objects that have the only scope of slowing everything down.
+	</p>
+	<p>
+		Give a look to the full code:
+	</p>
+</div>
+
+<div class="code">
+<pre>
+<code>
+import org.lorenzoleonardini.badger.Engine2D;
+import org.lorenzoleonardini.badger.GameLoop;
+import org.lorenzoleonardini.badger.physics.Material;
+import org.lorenzoleonardini.badger.physics.PhysicsObject;
+import org.lorenzoleonardini.badger.texture.Circle;
+
+public class HelloWorld
+{
+	public static void main(String[] args)
+	{
+		// Create and initialize the 2D engine
+		Engine2D engine = new Engine2D();
+
+		// Create the window. Parameters are width, height, scale and title
+		engine.createWindow(900, 516, 1, "Hello World!");
+
+		// Set up the Game Loop
+		engine.loop(new GameLoop()
+		{
+			@Override
+			public void start()
+			{
+				/* ------------ What you write here will be executed before the game to start ------------ */
+				
+				Circle c = new Circle(20);
+				Material m = new Material(1);
+				PhysicsObject obj = new PhysicsObject(450, 250, c, m);
+				
+				// Change if the object is affected by gravity
+				obj.setAffectedByGravity(false);
+				// Change if the object can move or be moved
+				obj.setUnmovable(true);
+				// Change if the object can collide. In this particular case this is a property of its material
+				m.setTransparent(true);
+				
+				// Set a lifespan
+				obj.setLifespan(2500);
+				// Turning of automatic killing y > widow height
+				obj.setKillWhenOutOfBounds(false);
+			}
+			
+			@Override
+			public void run()
+			{
+				/* ------------------- What you write here will be executed every frame ------------------ */
+			}
+			
+			@Override
+			public void stop()
+			{
+				/* What you write here will be executed after the game to end, before closing the program. */
+			}
+		});
+		
+		// Start the engine
+		engine.start();
+		
+		engine.logFPS = false;
+		engine.logObjects = false;
+	}
+}
+</code>
+</pre>
+</div>
+
+<div class="content">
+	<p>
+		Now you know pretty much everything about objects in the Badger-Engine. Let's move to input handling!
+		<table><tr><td><a href="../gameloop">< Game Loop</a></td><td class="right"><a href="../input" class="disabled">Input Handling ></a></td></tr></table>
+	</p>
+</div>
+
+</center>
+<script type="text/javascript">var currentPage = ".menuDocumentation";</script>
+<script type="text/javascript" src="/Badger-Engine/utils.js"></script>
+</body>
+</html>

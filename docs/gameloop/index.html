@@ -110,10 +110,13 @@ public class HelloWorld
 </div>
 
 <div class="gradient">
-	<h3>Intelligent question</h3>
+	<h3>Intelligent questions</h3>
 	<p>
-		<strong>Is there any difference between a code put into the <i>start</i> method and a code put right before <i>engine.start()</i>?</strong><br />
+		<strong>Are there any differences between a code put into the <i>start</i> method and a code put right before <i>engine.start()</i>?</strong><br />
 		Of course yes. <i>engine.start()</i> initialize the Engine and all its features, and it also loads every resources from files. The <i>start</i> method is executed after these initializations and allows you to do whatever you want. On the contrary, code written before <i>engine.start()</i> is executed before the Engine to start: every code that uses Engine components or resources from files will cause a bunch of errors.
+		<br /><br />
+		<strong>So, are there any differences between a code put into the <i>start</i> method and a code put AFTER <i>engine.start()</i>?</strong><br />
+		In this case... I don't know. Giving a first look... no... but because the Engine runs in a separate Thread I don't suggest to do like that. Use the <i>start</i> method. It's there for a reason.
 	</p>
 </div>
 

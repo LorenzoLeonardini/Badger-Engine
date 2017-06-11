@@ -361,6 +361,7 @@ footer div
 	font-size: 1.1em;
 	padding-bottom: 10px;
 	margin-bottom: 30px;
+	overflow-x: auto;
 }
 
 pre, code
@@ -398,7 +399,7 @@ table
 		width: 930px;
 	}
 
-	.gradient
+	.gradient, .code
 	{
 		width: calc(930px);
 		padding-left: calc(50% - 457px);
@@ -413,11 +414,15 @@ table
 		width: 670px;
 	}
 
-	.gradient
+	.code, .gradient
 	{
 		width: calc(670px);
 		padding-left: calc(50% - 327px);
 		padding-right: calc(50% - 327px);
+	}
+
+	.gradient
+	{
 		background: -webkit-radial-gradient(circle 150vw, #1B2426, #3A4D52); /* Safari */
 		background: -o-radial-gradient(circle 150vw, #1B2426, #3A4D52); /* Opera 11.6 to 12.0 */
 		background: -moz-radial-gradient(circle 150vw, #1B2426, #3A4D52); /* Firefox 3.6 to 15 */
@@ -442,7 +447,7 @@ table
 		width: 520px;
 	}
 
-	.gradient
+	.code, .gradient
 	{
 		width: calc(520px);
 		padding-left: calc(50% - 252px);
@@ -476,7 +481,7 @@ table
 		width: 100%;
 	}
 
-	.gradient
+	.code, .gradient
 	{
 		width: 100%;
 		padding-left: 8px;

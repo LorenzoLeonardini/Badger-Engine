@@ -27,7 +27,7 @@ public abstract class Engine extends Input
 	public Mouse mouse;
 	protected Camera camera;
 	
-	private final String VERSION = "v0.3Beta";
+	private final String VERSION = "v0.3.1Beta";
 
 	protected GameLoop loop = new GameLoop()
 	{

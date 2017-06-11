@@ -34,7 +34,6 @@ public abstract class Engine extends Input
 		@Override
 		public void start()
 		{
-			
 		}
 		
 		@Override
@@ -46,7 +45,6 @@ public abstract class Engine extends Input
 		@Override
 		public void stop()
 		{
-			
 		}
 	};
 
@@ -78,6 +76,7 @@ public abstract class Engine extends Input
 		{
 			System.out.println("NEW VERSION AVAILABLE! - \"" + json.getString("name") + "\"\n\t\t\t\tpublished in " + json.getString("published_at").split("T")[0] + ", by " + json.getJSONObject("author").getString("login"));
 			System.out.println(json.getString("body").replace("### Bug fixes:\r\n_none_", ""));
+			System.out.println(json.getString("body").replace("### Edits:\r\n_none_", ""));
 		}
 		else
 			System.out.println("No updates found\n\n");

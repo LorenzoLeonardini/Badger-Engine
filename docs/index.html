@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" type="image/png" href="https://lorenzoleonardini.altervista.org/github/Badger-Engine/logo128.png">
+	<title>Badger-Engine | Get Started</title>
+	<link href='https://fonts.googleapis.com/css?family=Roboto|Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="../graphics.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="/Badger-Engine/highlight.js/styles/dracula.css">
+	<script src="/Badger-Engine/highlight.js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<center>
+<div class="content">
+	<h3>Getting Started</h3>
+	<p>
+		Let's see how to get start using this Engine. After you have included the library into your Java project and you have created the main class, let's move into the <i>main</i> method.
+	</p>
+	<p>
+		The following code shows how to create a window and initialize the Engine.
+	</p>
+</div>
+
+<div class="code">
+<pre>
+<code>
+import org.lorenzoleonardini.badger.Engine2D;
+
+public class HelloWorld
+{
+	public static void main(String[] args)
+	{
+		// Create and initialize the 2D engine
+		Engine2D engine = new Engine2D();
+
+		// Create the window. Parameters are width, height, scale and title
+		engine.createWindow(900, 516, 1, "Hello World!");
+
+		// Start the engine
+		engine.start();
+	}
+}
+</code>
+</pre>
+</div>
+
+<div class="content">
+	<p>
+		As you can notice the window is not closing. In fact, differently from <a href="http://www.glfw.org/" target="_blank">GLFW</a>, this Engine assumes that your window must survive until you press the close button. Another thing that you can easily notice is that every second both FPS and Objects counters are displayed in console. We'll give a deeper look to the second one in the future. For now just note that you can turn off these updates by changing this two boolean values:
+	</p>
+</div>
+
+<div class="code">
+<pre>
+<code>
+		engine.logFPS = false;
+		engine.logObjects = false;
+</code>
+</pre>
+</div>
+
+<div class="content">
+	<p>
+		Read the next section to know about the game loop!
+		<div class="right"><a href="gameloop">Game Loop ></a></div>
+	</p>
+</div>
+</center>
+
+<script type="text/javascript">var currentPage = ".menuDocumentation";</script>
+<script type="text/javascript" src="../utils.js"></script>
+</body>
+</html>

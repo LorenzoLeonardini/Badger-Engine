@@ -1,0 +1,16 @@
+import org.lorenzoleonardini.badger.Engine2D;
+
+public class HelloWorld
+{
+	public static void main(String[] args)
+	{
+		<span class="hljs-comment">// Create and initialize the 2D engine</span>
+		Engine2D engine = <span class="hljs-keyword">new</span> Engine2D();
+
+		<span class="hljs-comment">// Create the window. Parameters are width, height, scale and title</span>
+		engine.createWindow(900, 516, 1, <span class="hljs-string">"Hello World!"</span>);
+
+		<span class="hljs-comment">// Start the engine</span>
+		engine.start();
+	}
+}

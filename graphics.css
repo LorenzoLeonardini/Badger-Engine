@@ -201,7 +201,7 @@ button:hover::before
 	width: 1100px;
 }
 
-.content, .gradient
+.content, .gradient, .code
 {
 	text-align: left;
 	font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
@@ -347,6 +347,48 @@ footer div
 .developedBy a:hover
 {
 	color: #fff;
+}
+
+.code
+{
+	position: relative;
+	top: 8px;
+	left: -8px;
+	width: calc(1100px);
+	padding-left: calc(50% - 542px);
+	padding-right: calc(50% - 542px);
+	background: rgb(43, 43, 43);
+	font-size: 1.1em;
+	padding-bottom: 10px;
+	margin-bottom: 30px;
+}
+
+pre, code
+{
+	padding: 0;
+	margin: 0;
+	font-family: monospace;
+	font-size: 1em;
+}
+
+.right
+{
+	text-align: right;
+}
+
+table
+{
+	width: 100%;
+}
+
+.disabled
+{
+	color: #606060;
+}
+
+.disabled:hover, .disabled:focus, .disabled:active
+{
+	color: #3F3F3F;
 }
 
 @media only screen and (max-width: 1200px) 

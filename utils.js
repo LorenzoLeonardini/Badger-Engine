@@ -2,8 +2,8 @@ document.body.innerHTML = "<header></header>" + document.body.innerHTML + "<foot
 
 $(function()
 {
-	$('header').load("header.html");
-	$('footer').load("footer.html");
+	$('header').load("/Badger-Engine/header.html");
+	$('footer').load("/Badger-Engine/footer.html");
 });
 
 var lastScrollTop = 0;
@@ -28,7 +28,7 @@ setInterval(function()
 function hasScrolled() 
 {
 	var st = $(this).scrollTop();
-	if (Math.abs(lastScrollTop - st) <= delta)
+	if (Math.abs(lastScrollTop - st) <= delta)
 		return;
 
 	if ($('#cover').hasClass("visible"))
@@ -53,3 +53,8 @@ function hasScrolled()
 
 	lastScrollTop = st;
 }
+
+$('.disabled').click(function(e)
+{
+	e.preventDefault();
+})

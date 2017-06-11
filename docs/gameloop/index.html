@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" type="image/png" href="https://lorenzoleonardini.altervista.org/github/Badger-Engine/logo128.png">
+	<title>Badger Engine | Game Loop</title>
+	<link href='https://fonts.googleapis.com/css?family=Roboto|Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/Badger-Engine/graphics.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="/Badger-Engine/highlight.js/styles/dracula.css">
+	<script src="/Badger-Engine/highlight.js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<center>
+<div class="content">
+	<h3>Game Loop</h3>
+	<p>
+		Inside the Engine2D class there's a Game Loop that handles the input, runs the Physics Engine to update every object and renders everything to the screen. Right before this last rendering, the Engine execute what you, the developer, have written into your code. In fact setting up your Game Loop is really easy. The Engine2D class has a method, called <i>loop</i> that takes in as a parameter a GameLoop object, where you define your loop. I know, the word "loop" is used too much. Furthermore you can define what the Engine should execute before the loop (and so the game) starts and after it ends, before shutting everything down. Let's give a look to the simple code.
+	</p>
+</div>
+
+<div class="code">
+<pre>
+<code>
+engine.loop(new GameLoop()
+{
+	@Override
+	public void start()
+	{
+		// What you write here will be executed before the game to start
+	}
+	
+	@Override
+	public void run()
+	{
+		// What you write here will be executed every frame
+	}
+	
+	@Override
+	public void stop()
+	{
+		// What you write here will be executed after the game to end, before closing the program.
+	}
+});
+</code>
+</pre>
+</div>
+
+<div class="content">
+	<p>
+		As I promised the code is in fact really really simple. That's because I do not want you to spend too much time on aspects different from the game logic. You handle it, the Engine handle everything else. The final code will look something like this:
+	</p>
+</div>
+
+<div class="code">
+<pre>
+<code>
+import org.lorenzoleonardini.badger.Engine2D;
+import org.lorenzoleonardini.badger.GameLoop;
+
+public class HelloWorld
+{
+	public static void main(String[] args)
+	{
+		// Create and initialize the 2D engine
+		Engine2D engine = new Engine2D();
+
+		// Create the window. Parameters are width, height, scale and title
+		engine.createWindow(900, 516, 1, "Hello World!");
+
+		// Set up the Game Loop
+		engine.loop(new GameLoop()
+		{
+			@Override
+			public void start()
+			{
+				// What you write here will be executed before the game to start
+			}
+			
+			@Override
+			public void run()
+			{
+				// What you write here will be executed every frame
+			}
+			
+			@Override
+			public void stop()
+			{
+				// What you write here will be executed after the game to end, before closing the program.
+			}
+		});
+		
+		// Start the engine
+		engine.start();
+		
+		engine.logFPS = false;
+		engine.logObjects = false;
+	}
+}
+</code>
+</pre>
+</div>
+
+<div class="content">
+	<p>
+		We should now give a look to objects and input handling. Read the next two guides for more.
+		<table><tr><td><a href="../">< Get Started</a></td><td class="right"><a href="../objects" class="disabled">Objects ></a></td></tr></table>
+	</p>
+</div>
+</center>
+<script type="text/javascript">var currentPage = ".menuDocumentation";</script>
+<script type="text/javascript" src="/Badger-Engine/utils.js"></script>
+</body>
+</html>

@@ -25,3 +25,5 @@ bin/
 Badger-Engine.wiki/
 release/
 output/
+libs/
+libs/notIncluded/

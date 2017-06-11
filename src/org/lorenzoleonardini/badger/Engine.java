@@ -29,11 +29,24 @@ public abstract class Engine extends Input
 	
 	private final String VERSION = "v0.3Beta";
 
-	protected Loop loop = new Loop()
+	protected GameLoop loop = new GameLoop()
 	{
 		@Override
-		public void loop()
+		public void start()
 		{
+			
+		}
+		
+		@Override
+		public void run()
+		{
+		}
+		
+
+		@Override
+		public void stop()
+		{
+			
 		}
 	};
 
@@ -114,7 +127,7 @@ public abstract class Engine extends Input
 	 * Set what the engine must do every loop cycle
 	 * @param callback
 	 */
-	public void loop(Loop callback)
+	public void loop(GameLoop callback)
 	{
 		loop = callback;
 	}

@@ -5,7 +5,11 @@ package org.lorenzoleonardini.badger;
  * @author Lorenzo Leonardini
  *
  */
-public interface Loop
+public interface GameLoop
 {
-	public void loop();
+	public void start();
+	
+	public void run();
+	
+	public void stop();
 }

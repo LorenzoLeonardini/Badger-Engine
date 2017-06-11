@@ -105,14 +105,18 @@ public class Engine2D extends Engine implements Runnable
 
 	public void run()
 	{
+		loop.start();
+		
 		while (running)
 		{
 			if (fpsDelta())
 				continue;
 			handleInput();
 			update();
-			loop.loop();
+			loop.run();
 			window.render(camera);
 		}
+		
+		loop.stop();
 	}
 }

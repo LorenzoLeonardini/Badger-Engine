@@ -1,5 +1,5 @@
 if(navigator.userAgent.toLowerCase().indexOf('safari') > -1)
-	$(".mobileHeader").css("top", "-8px");
+	$(".headerMobile").css("top", "-8px");
 
 document.body.innerHTML = "<header></header>" + document.body.innerHTML + "<footer class=\"gradient\"></footer>";
 

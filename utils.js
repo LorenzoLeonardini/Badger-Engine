@@ -1,3 +1,5 @@
+alert(navigator.userAgent);
+
 document.body.innerHTML = "<header></header>" + document.body.innerHTML + "<footer class=\"gradient\"></footer>";
 
 $(function()

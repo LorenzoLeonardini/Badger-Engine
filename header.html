@@ -7,6 +7,11 @@
 <div id="cover" class="hidden"><script type="text/javascript">
 document.body.onload = function()
 {
+
+if(navigator.userAgent.toLowerCase().indexOf('safari') > -1)
+	$(".headerMobile").css("top", "-8px");
+	
+	
 $(".headerMobile").click(function()
 {
 	$("#cover").removeClass("hidden");

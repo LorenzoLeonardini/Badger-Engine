@@ -63,4 +63,4 @@ $(".headerMobile").load(function()
 {
 	if(navigator.userAgent.toLowerCase().indexOf('safari') > -1)
 		$(".headerMobile").css("top", "-8px");
-}
+});

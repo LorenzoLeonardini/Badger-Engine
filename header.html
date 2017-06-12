@@ -31,10 +31,9 @@ $(currentPage).addClass("current");
 </script></div>
 <button class="headerMobile">
 	<script type="text/javascript">
-		if(navigator.userAgent.toLowerCase().indexOf('safari') > -1)
+		if(navigator.userAgent.toLowerCase().indexOf('safari') > -1 && navigator.userAgent.toLowerCase().indexOf('mac os x') > -1)
 		{
 			$(".headerMobile").css("top", "-8px");
-			alert(navigator.userAgent);
 		}
 	</script>
 	<div class="mobileMenu">

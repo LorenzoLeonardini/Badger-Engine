@@ -6,12 +6,7 @@
 </div>
 <div id="cover" class="hidden"><script type="text/javascript">
 document.body.onload = function()
-{
-
-if(navigator.userAgent.toLowerCase().indexOf('safari') > -1)
-	$(".headerMobile").css("top", "-8px");
-	
-	
+{	
 $(".headerMobile").click(function()
 {
 	$("#cover").removeClass("hidden");
@@ -35,6 +30,10 @@ $(currentPage).addClass("current");
 }
 </script></div>
 <button class="headerMobile">
+	<script type="text/javascript">
+		if(navigator.userAgent.toLowerCase().indexOf('safari') > -1)
+			$(".headerMobile").css("top", "-8px");
+	</script>
 	<div class="mobileMenu">
 		<br /><br />
 		<a href="/Badger-Engine"><div class="menuHome">HOME</div></a>

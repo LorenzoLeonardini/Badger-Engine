@@ -1,6 +1,3 @@
-if(navigator.userAgent.toLowerCase().indexOf('safari') > -1)
-	$(".headerMobile").css("top", "-8px");
-
 document.body.innerHTML = "<header></header>" + document.body.innerHTML + "<footer class=\"gradient\"></footer>";
 
 $(function()
@@ -61,3 +58,6 @@ $('.disabled').click(function(e)
 {
 	e.preventDefault();
 })
+
+if(navigator.userAgent.toLowerCase().indexOf('safari') > -1)
+	$(".headerMobile").css("top", "-8px");

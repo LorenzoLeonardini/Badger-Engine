@@ -31,7 +31,7 @@ header
 .headerRight
 {
 	text-align: right;
-	width: calc(100% - 227px);
+	width: calc(100% - 229px);
 	padding-right: 3px;
 	display: inline-block;
 }

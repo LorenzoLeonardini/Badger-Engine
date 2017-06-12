@@ -57,11 +57,4 @@ function hasScrolled()
 $('.disabled').click(function(e)
 {
 	e.preventDefault();
-})
-
-$(".headerMobile").load(function()
-{
-	alert(navigator.userAgent);
-	if(navigator.userAgent.toLowerCase().indexOf('safari') > -1)
-		$(".headerMobile").css("top", "-8px");
 });

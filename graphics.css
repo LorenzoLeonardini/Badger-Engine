@@ -358,6 +358,7 @@ footer div
 	padding-left: calc(50% - 542px);
 	padding-right: calc(50% - 542px);
 	background: rgb(43, 43, 43);
+	font-size: 1.1em;
 	padding-bottom: 10px;
 	margin-bottom: 30px;
 	overflow-x: auto;
@@ -368,6 +369,7 @@ pre, code
 	padding: 0;
 	margin: 0;
 	font-family: monospace;
+	font-size: 1em;
 }
 
 .right

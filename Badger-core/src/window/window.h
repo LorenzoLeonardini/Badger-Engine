@@ -2,9 +2,13 @@
 
 #include <GLFW/glfw3.h>
 #include <iostream>
+#include "../renderer/screen.h"
 
 namespace badger {
-	namespace graphics {
+	namespace window {
+
+		using namespace renderer;
+		using namespace engine;
 
 		class Window
 		{
@@ -12,10 +16,14 @@ namespace badger {
 			const char *m_Title;
 			int m_Width, m_Height;
 			GLFWwindow *m_Window;
-			bool m_Closed;
+			//Screen *screen;
 		public:
-			Window(const char *title, int width, int height);
+			Window(int width, int height, const char *title);
 			~Window();
+			void setIconImages();
+			void printVersion() const;
+			void render(Camera *camera);
+
 			void clear() const;
 			void update();
 			bool closed() const;

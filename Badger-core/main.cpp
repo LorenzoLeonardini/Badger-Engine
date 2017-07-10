@@ -1,14 +1,15 @@
-#include "src/graphics/window.h"
+#include "src/engine/engine.h"
 
 int main(void)
 {	
 	using namespace badger;
-	using namespace graphics;
+	using namespace engine;
 
-	Window window("Badger Engine!", 800, 600);
-	glClearColor(0.2f, 0.3f, 0.7f, 1.0f);
+	Engine2D *engine = new Engine2D();
+	engine->createWindow(900, 516, "Badger Engine!");
+	engine->start();
 
-	while (!window.closed())
+	/*while (!window.closed())
 	{
 		window.clear();
 		glBegin(GL_TRIANGLES);
@@ -17,7 +18,9 @@ int main(void)
 		glVertex2f(.5f, -.5f);
 		glEnd();
 		window.update();
-	}
+	}*/
+
+	delete engine;
 
 	return 0;
 }

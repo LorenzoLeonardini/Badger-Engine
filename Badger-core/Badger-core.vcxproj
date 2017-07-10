@@ -118,10 +118,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="src\graphics\window.cpp" />
+    <ClCompile Include="src\engine\camera.cpp" />
+    <ClCompile Include="src\engine\Engine.cpp" />
+    <ClCompile Include="src\physics\vector.cpp" />
+    <ClCompile Include="src\renderer\screen.cpp" />
+    <ClCompile Include="src\window\window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\graphics\window.h" />
+    <ClInclude Include="src\engine\camera.h" />
+    <ClInclude Include="src\engine\Engine.h" />
+    <ClInclude Include="src\physics\vector.h" />
+    <ClInclude Include="src\renderer\screen.h" />
+    <ClInclude Include="src\window\window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

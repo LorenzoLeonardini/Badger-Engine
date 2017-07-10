@@ -1,22 +1,42 @@
 #include "window.h"
 
 namespace badger {
-	namespace graphics {
+	namespace window {
 
 		void windowResize(GLFWwindow *window, int width, int height);
 
-		Window::Window(const char *title, int width, int height)
+		Window::Window(int width, int height, const char *title)
 		{
 			m_Title = title;
 			m_Width = width;
 			m_Height = height;
 			if (!init())
 				glfwTerminate();
+
+			//screen = new Screen(width, height, this);
 		}
 
 		Window::~Window()
 		{
 			glfwTerminate();
+			//delete screen;
+		}
+
+		void Window::setIconImages()
+		{
+
+		}
+
+		void Window::printVersion() const
+		{
+
+		}
+
+		void Window::render(Camera *camera)
+		{
+			clear();
+			//screen.render(camera);
+			update();
 		}
 
 		bool Window::init()
@@ -47,8 +67,6 @@ namespace badger {
 		void Window::update()
 		{
 			glfwPollEvents();
-			//glfwGetFramebufferSize(m_Window, &m_Width, &m_Height);
-			//glViewport(0, 0, m_Width, m_Height);
 			glfwSwapBuffers(m_Window);
 		}
 

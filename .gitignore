@@ -28,5 +28,4 @@ output/
 libs/
 libs/notIncluded/
 .vs/
-Debug/
-Badger-core/Debug/
+bin/

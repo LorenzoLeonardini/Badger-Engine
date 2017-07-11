@@ -1,14 +1,12 @@
 #pragma once
 
-#include <GLFW/glfw3.h>
 #include <iostream>
-#include "../renderer/screen.h"
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+#include "../utils.h"
 
 namespace badger {
 	namespace window {
-
-		using namespace renderer;
-		using namespace engine;
 
 		class Window
 		{
@@ -16,13 +14,12 @@ namespace badger {
 			const char *m_Title;
 			int m_Width, m_Height;
 			GLFWwindow *m_Window;
-			//Screen *screen;
 		public:
 			Window(int width, int height, const char *title);
 			~Window();
 			void setIconImages();
 			void printVersion() const;
-			void render(Camera *camera);
+			void render();
 
 			void clear() const;
 			void update();

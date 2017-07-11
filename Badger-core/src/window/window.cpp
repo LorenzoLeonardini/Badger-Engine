@@ -12,14 +12,11 @@ namespace badger {
 			m_Height = height;
 			if (!init())
 				glfwTerminate();
-
-			//screen = new Screen(width, height, this);
 		}
 
 		Window::~Window()
 		{
 			glfwTerminate();
-			//delete screen;
 		}
 
 		void Window::setIconImages()
@@ -32,18 +29,11 @@ namespace badger {
 
 		}
 
-		void Window::render(Camera *camera)
-		{
-			clear();
-			//screen.render(camera);
-			update();
-		}
-
 		bool Window::init()
 		{
 			if (!glfwInit())
 			{
-				std::cout << "Failed initializing GLFW" << std::endl;
+				Log("Failed initializing GLFW");
 				return false;
 			}
 
@@ -51,11 +41,19 @@ namespace badger {
 			if (!m_Window)
 			{
 				glfwTerminate();
-				std::cout << "Failed creating GLFW window!" << std::endl;
+				Log("Failed creating GLFW window!");
 				return false;
 			}
 			glfwMakeContextCurrent(m_Window);
 			glfwSetWindowSizeCallback(m_Window, windowResize);
+
+			if (glewInit() != GLEW_OK)
+			{
+				Log("Could not initialize GLEW!");
+				return false;
+			}
+
+			std::cout << "OpenGL " << glGetString(GL_VERSION) << std::endl << std::endl;
 			return true;
 		}
 

@@ -18,17 +18,17 @@ This Engine uses <a href="https://www.opengl.org/" target="_blank">OpenGL 3</a>.
 ## TODO List
 
 Here you can find the complete list of features/bug fixes I'm currently working on for the new version:
-	- Switching to OpenGL
-	- Circle - Rectangle collision
-	- Bug fixes:
-		- Circle bouncing bug
+- Switching to OpenGL
+- Circle - Rectangle collision
+- Bug fixes:
+	- Circle bouncing bug
 
 ## Licence
 
 You are free to:
-	- modify this Engine and use it for a personal, private project
-	- use this Engine without any modification for a public non-commercial project
-	- study the code for a learn scope
+- modify this Engine and use it for a personal, private project
+- use this Engine without any modification for a public non-commercial project
+- study the code for a learn scope
 
 <strong>If you want to use this Engine for a commercial project you must ask me for a permission.</strong><br />
 

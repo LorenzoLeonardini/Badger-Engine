@@ -9,7 +9,7 @@ Right now the Engine is under development and this means that all the features d
 
 The current version is <a href="https://github.com/LorenzoLeonardini/Badger-Engine/releases/tag/v0.3Beta" target="_blank">0.3Beta</a>. It mainly adds collision between moving circles. Still need to fix a bug that causes not moving circles to not really collide well. You can see the exact changelog <a href="https://github.com/LorenzoLeonardini/Badger-Engine/releases/tag/v0.3Beta" target="_blank">here</a>. Remember to follow the development on the <a href="https://github.com/LorenzoLeonardini/Badger-Engine/" target="_blank">GitHub page</a>.
 
-<div align="center"><img src="https://j.gifs.com/Q1PNm5.gif" width="700px"></div>
+<div align="center"><img src="https://j.gifs.com/Q1PNm5.gif" width="600px"></div>
 
 ## Requirements
 
@@ -35,3 +35,10 @@ You are free to:
 <strong><i>Any other usage that is not specified here is ABSOLUTELY NOT ALLOWED and you MUST NOT do it.</i></strong><br />
 
 <i>If you need to discuss this very strict licence you can contact me at <strong>dev.lorenzoleonardini [ @ ] gmail . com</strong></i>
+
+## More
+
+- [Home](https://lorenzoleonardini.github.io/Badger-Engine/)
+- [Get Started](https://lorenzoleonardini.github.io/Badger-Engine/docs/)
+- [Website](http://lorenzoleonardini.altervista.org)
+- [YouTube](https://youtube.com/c/LorenzoLeonardini)

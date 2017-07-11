@@ -1,4 +1,5 @@
-<div align="center"><img src="http://lorenzoleonardini.altervista.org/github/Badger-Engine/logo128.png"></div>
+<div align="center"><img src="http://lorenzoleonardini.altervista.org/github/Badger-Engine/logo64.png"></div>
+<div align="center"><h1>Badger Engine</h1></div>
 
 # Badger Engine
 

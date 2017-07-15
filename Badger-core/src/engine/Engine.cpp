@@ -3,8 +3,6 @@
 namespace badger {
 	namespace engine {
 
-		using namespace window;
-
 		Engine::Engine()
 		{
 			if(!checkVersion())
@@ -58,6 +56,8 @@ namespace badger {
 		Engine2D::~Engine2D()
 		{
 			delete window;
+			delete keyboard;
+			delete mouse;
 		}
 
 		void Engine2D::createWindow(int width, int height, const char* title)
@@ -65,7 +65,8 @@ namespace badger {
 			this->HEIGHT = height;
 			
 			window = new Window(width, height, title);
-
+			keyboard = new Keyboard(window->m_Window);
+			mouse = new Mouse(window->m_Window);
 			//TODO: icon
 		}
 
@@ -73,7 +74,7 @@ namespace badger {
 		{
 			m_Running = true;
 			m_StartTime = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
-			glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
+			//glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 			run();
 		}
 
@@ -84,39 +85,44 @@ namespace badger {
 
 		void Engine2D::update()
 		{
-			glBegin(GL_TRIANGLE_STRIP);
-			for (int i = 0; i <= 360; i+=2) {
-				double angle = 2 * M_PI * i / 360;
-				double x = cos(angle) * .3f;
-				double y = sin(angle) * .3f;
-				glVertex2d(x, y);
-				i+=2;
-				angle = 2 * M_PI * i / 360;
-				x = cos(angle) * .3f;
-				y = sin(angle) * .3f;
-				glVertex2d(x, y);
-				glVertex2d(0, 0);
-			}
-			glEnd();
+			GLenum error = glGetError();
+			if (error != GL_NO_ERROR)
+				std::cout << "OpenGL Error: " << error << std::endl;
 		}
 
 		void Engine2D::run()
 		{
-			using namespace window;
+			using namespace graphics;
 			//loop.start();
 			
-			GLuint vao;
-			glGenVertexArrays(1, &vao);
-			glBindVertexArray(vao);
+			mat4 ortho = mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f);
 
+
+			Shader shader("src/shaders/basic.vert", "src/shaders/basic.frag");
+			shader.enable();
+			shader.setUniformMat4("pr_matrix", ortho);
+			shader.setUniformMat4("ml_matrix", mat4::translation(vec3(4, 3, 0)));
+
+			Renderable2D sprite(vec3(5, 5, 0), vec2(4, 4), vec4(0.2f, 0.3f, 0.8f, 1), shader);
+			Renderable2D sprite2(vec3(7, 1, 0), vec2(2, 3), vec4(0.2f, 0, 1, 1), shader);
+			Simple2DRenderer renderer;
+			
+			shader.setUniform2f("light_pos", vec2(4, 1.5f));
+			shader.setUniform4f("col", vec4(0.2f, 0.3f, 0.8f, 1.0f));
+			
 			while (m_Running)
 			{
 				if (fpsDelta())
 					continue;
 				handleInput();
 				window->clear();
-				//update();
-				glDrawArrays(GL_ARRAY_BUFFER, 0, 6);
+				update();
+				double x, y;
+				mouse->getMousePosition(x, y);
+				shader.setUniform2f("light_pos", vec2((float)(x * 16 / 900), (float)(9 - y * 9 / 516)));
+				renderer.submit(&sprite);
+				renderer.submit(&sprite2);
+				renderer.flush();
 				//loop.run();
 				window->update();
 				m_Running = m_Running && !window->closed();

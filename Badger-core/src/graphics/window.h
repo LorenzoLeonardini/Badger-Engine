@@ -3,17 +3,21 @@
 #include <iostream>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "../utils.h"
+#include "../utils/utils.h"
+#include "../input/input.h"
 
 namespace badger {
-	namespace window {
+	namespace graphics {
+
+		using namespace input;
 
 		class Window
 		{
+		public:
+			GLFWwindow *m_Window;
 		private:
 			const char *m_Title;
 			int m_Width, m_Height;
-			GLFWwindow *m_Window;
 		public:
 			Window(int width, int height, const char *title);
 			~Window();

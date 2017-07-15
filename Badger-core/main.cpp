@@ -4,7 +4,7 @@ int main(void)
 {	
 	using namespace badger;
 	using namespace engine;
-	using namespace window;
+	using namespace graphics;
 
 	Engine2D *engine = new Engine2D();
 	engine->createWindow(900, 516, "Badger Engine!");

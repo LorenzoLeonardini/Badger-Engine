@@ -1,13 +1,28 @@
 #pragma once
+
 #include <iostream>
 #include <chrono>
-#include "../window/window.h"
+#include "../graphics/window.h"
 #define _USE_MATH_DEFINES
 #include <math.h>
-#include "../utils.h"
+#include "../utils/utils.h"
+#include "../input/input.h"
+#include "../maths/maths.h"
+#include "../graphics/shader.h"
+
+#include "../graphics/buffers/buffer.h"
+#include "../graphics/buffers/indexbuffer.h"
+#include "../graphics/buffers/vertexarray.h"
+
+#include "../graphics/simple2drenderer.h"
+#include "../graphics/renderable2d.h"
 
 namespace badger {
 	namespace engine {
+
+		using namespace graphics;
+		using namespace input;
+		using namespace maths;
 
 		class Engine
 		{
@@ -19,7 +34,6 @@ namespace badger {
 		protected:
 			long long m_StartTime;
 		public:
-			double HEIGHT;
 			bool m_LogFPS = true, m_LogObjects = true;
 		public:
 			Engine();
@@ -35,10 +49,14 @@ namespace badger {
 
 		class Engine2D : Engine
 		{
+		private:
+			Keyboard *keyboard;
+			Mouse *mouse;
 		public:
-			badger::window::Window *window;
 			bool m_Running = false;
 		public:
+			badger::graphics::Window *window;
+			double HEIGHT;
 		public:
 			Engine2D();
 			~Engine2D();

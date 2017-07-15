@@ -1,9 +1,9 @@
 #include "window.h"
 
 namespace badger {
-	namespace window {
+	namespace graphics {
 
-		void windowResize(GLFWwindow *window, int width, int height);
+		void window_resize(GLFWwindow *window, int width, int height);
 
 		Window::Window(int width, int height, const char *title)
 		{
@@ -45,7 +45,8 @@ namespace badger {
 				return false;
 			}
 			glfwMakeContextCurrent(m_Window);
-			glfwSetWindowSizeCallback(m_Window, windowResize);
+			glfwSetWindowUserPointer(m_Window, this);
+			glfwSetWindowSizeCallback(m_Window, window_resize);
 
 			if (glewInit() != GLEW_OK)
 			{
@@ -73,9 +74,10 @@ namespace badger {
 			return glfwWindowShouldClose(m_Window);
 		}
 
-		void windowResize(GLFWwindow *window, int width, int height)
+		void window_resize(GLFWwindow *window, int width, int height)
 		{
 			glViewport(0, 0, width, height);
 		}
+
 	}
 }

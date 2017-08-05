@@ -1,6 +1,11 @@
 #pragma once
 
-#include <GL/glew.h>
+#ifdef BADGER_EMSCRIPTEN
+	#define GLFW_INCLUDE_ES3
+	#include <GLFW/glfw3.h>
+#else
+	#include <GL/glew.h>
+#endif
 
 namespace badger {
 	namespace graphics {
@@ -12,6 +17,8 @@ namespace badger {
 			GLuint m_Count;
 		public:
 			IndexBuffer(GLushort *data, GLsizei count);
+			IndexBuffer(GLuint *data, GLsizei count);
+			~IndexBuffer();
 
 			void bind() const;
 			void unbind() const;

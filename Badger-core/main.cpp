@@ -1,3 +1,5 @@
+#if 0
+
 #include "src/engine/engine.h"
 
 int main(void)
@@ -14,3 +16,5 @@ int main(void)
 
 	return 0;
 }
+
+#endif

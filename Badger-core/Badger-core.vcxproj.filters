@@ -13,106 +13,471 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="File di origine\ext">
+      <UniqueIdentifier>{cd94a7c2-5190-49d4-875a-69d8b06c5aee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di origine\ext\freetype">
+      <UniqueIdentifier>{d528d918-2404-4b93-934a-1da8e62a0e38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione\ext">
+      <UniqueIdentifier>{aa642bb0-649d-4d12-b85b-20953d1deba2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione\ext\freetype">
+      <UniqueIdentifier>{0b85304c-06c4-4131-9421-fd6e4e0436d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di origine\ext\freetype\FT_MODULES">
+      <UniqueIdentifier>{60fb1267-6e12-43da-af88-4e8b7f08199a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione\ext\freetype-gl">
+      <UniqueIdentifier>{c63d7f8b-3f57-429d-8b90-2a9bfbf469fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di origine\ext\freetype-gl">
+      <UniqueIdentifier>{4ec74f27-f601-43f3-9fc8-d61e88c6e841}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione\graphics">
+      <UniqueIdentifier>{66de9945-82e9-47e8-94f7-e7bf91bf6e4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione\engine">
+      <UniqueIdentifier>{4f62b58d-5176-43a4-9e96-f5b531211552}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione\input">
+      <UniqueIdentifier>{e51943d8-5315-4642-838d-3f3579b5a7b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione\maths">
+      <UniqueIdentifier>{b0cecc3e-75f2-4a04-bda2-80736ab3b516}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione\utils">
+      <UniqueIdentifier>{64289fcb-0c73-4fc7-afb8-406819443a89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione\graphics\buffers">
+      <UniqueIdentifier>{255e3837-8b57-4b97-b091-2ad0c6741af2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione\graphics\layers">
+      <UniqueIdentifier>{48697804-fe9e-4d17-91de-d2d6936cfafc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di origine\engine">
+      <UniqueIdentifier>{28300879-b674-4009-a759-6cf64697a479}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di origine\graphics">
+      <UniqueIdentifier>{69f1ec1b-fba0-410f-8b70-45a5454c5807}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di origine\graphics\buffers">
+      <UniqueIdentifier>{dc9131ad-47a5-4440-ab12-cf79d3320c27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di origine\graphics\layers">
+      <UniqueIdentifier>{a5a4fc5b-631b-438a-a4e8-14182f7574e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di origine\input">
+      <UniqueIdentifier>{34f11d70-bcd1-4a41-8044-bd98bf045f0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di origine\maths">
+      <UniqueIdentifier>{edcda37d-84ab-4e81-b00b-bde686ac0c49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{47d8c062-e4a2-4388-a89b-da7c03d045fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione\ext\gorilla-audio">
+      <UniqueIdentifier>{57a11e14-af1e-486a-bef2-e0c743ca8799}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di origine\ext\gorilla-audio">
+      <UniqueIdentifier>{74754a24-5912-4a3e-b4d0-f5e1f52d126d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="src\engine\engine.cpp">
-      <Filter>File di origine</Filter>
+    <ClCompile Include="ext\freetype\src\autofit\autofit.c">
+      <Filter>File di origine\ext\freetype</Filter>
     </ClCompile>
-    <ClCompile Include="src\input\input.cpp">
-      <Filter>File di origine</Filter>
+    <ClCompile Include="ext\freetype\src\bdf\bdf.c">
+      <Filter>File di origine\ext\freetype</Filter>
     </ClCompile>
-    <ClCompile Include="src\maths\vec2.cpp">
-      <Filter>File di origine</Filter>
+    <ClCompile Include="ext\freetype\src\cff\cff.c">
+      <Filter>File di origine\ext\freetype</Filter>
     </ClCompile>
-    <ClCompile Include="src\maths\vec3.cpp">
-      <Filter>File di origine</Filter>
+    <ClCompile Include="ext\freetype\src\base\ftbase.c">
+      <Filter>File di origine\ext\freetype</Filter>
     </ClCompile>
-    <ClCompile Include="src\maths\vec4.cpp">
-      <Filter>File di origine</Filter>
+    <ClCompile Include="ext\freetype\src\base\ftbitmap.c">
+      <Filter>File di origine\ext\freetype</Filter>
     </ClCompile>
-    <ClCompile Include="src\maths\mat4.cpp">
-      <Filter>File di origine</Filter>
+    <ClCompile Include="ext\freetype\src\cache\ftcache.c">
+      <Filter>File di origine\ext\freetype</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\window.cpp">
-      <Filter>File di origine</Filter>
+    <ClCompile Include="ext\freetype\src\base\ftdebug.c">
+      <Filter>File di origine\ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\base\ftfstype.c">
+      <Filter>File di origine\ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\base\ftgasp.c">
+      <Filter>File di origine\ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\base\ftglyph.c">
+      <Filter>File di origine\ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\gzip\ftgzip.c">
+      <Filter>File di origine\ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\base\ftinit.c">
+      <Filter>File di origine\ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\lzw\ftlzw.c">
+      <Filter>File di origine\ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\base\ftstroke.c">
+      <Filter>File di origine\ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\base\ftsystem.c">
+      <Filter>File di origine\ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\smooth\smooth.c">
+      <Filter>File di origine\ext\freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\base\ftbbox.c">
+      <Filter>File di origine\ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\base\ftgxval.c">
+      <Filter>File di origine\ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\base\ftlcdfil.c">
+      <Filter>File di origine\ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\base\ftmm.c">
+      <Filter>File di origine\ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\base\ftotval.c">
+      <Filter>File di origine\ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\base\ftpatent.c">
+      <Filter>File di origine\ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\base\ftpfr.c">
+      <Filter>File di origine\ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\base\ftsynth.c">
+      <Filter>File di origine\ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\base\fttype1.c">
+      <Filter>File di origine\ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\base\ftwinfnt.c">
+      <Filter>File di origine\ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\base\ftfntfmt.c">
+      <Filter>File di origine\ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\pcf\pcf.c">
+      <Filter>File di origine\ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\pfr\pfr.c">
+      <Filter>File di origine\ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\psaux\psaux.c">
+      <Filter>File di origine\ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\pshinter\pshinter.c">
+      <Filter>File di origine\ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\psnames\psmodule.c">
+      <Filter>File di origine\ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\raster\raster.c">
+      <Filter>File di origine\ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\sfnt\sfnt.c">
+      <Filter>File di origine\ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\truetype\truetype.c">
+      <Filter>File di origine\ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\type1\type1.c">
+      <Filter>File di origine\ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\cid\type1cid.c">
+      <Filter>File di origine\ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\type42\type42.c">
+      <Filter>File di origine\ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype\src\winfonts\winfnt.c">
+      <Filter>File di origine\ext\freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype-gl\platform.c">
+      <Filter>File di origine\ext\freetype-gl</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype-gl\texture-atlas.c">
+      <Filter>File di origine\ext\freetype-gl</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype-gl\texture-font.c">
+      <Filter>File di origine\ext\freetype-gl</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\freetype-gl\vector.c">
+      <Filter>File di origine\ext\freetype-gl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\batchrenderer2d.cpp">
+      <Filter>File di origine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\label.cpp">
+      <Filter>File di origine\graphics</Filter>
     </ClCompile>
     <ClCompile Include="src\graphics\shader.cpp">
-      <Filter>File di origine</Filter>
+      <Filter>File di origine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\sprite.cpp">
+      <Filter>File di origine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\texture.cpp">
+      <Filter>File di origine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\window.cpp">
+      <Filter>File di origine\graphics</Filter>
     </ClCompile>
     <ClCompile Include="src\graphics\buffers\buffer.cpp">
-      <Filter>File di origine</Filter>
+      <Filter>File di origine\graphics\buffers</Filter>
     </ClCompile>
     <ClCompile Include="src\graphics\buffers\indexbuffer.cpp">
-      <Filter>File di origine</Filter>
+      <Filter>File di origine\graphics\buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\layers\layer.cpp">
+      <Filter>File di origine\graphics\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\layers\group.cpp">
+      <Filter>File di origine\graphics\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\input\input.cpp">
+      <Filter>File di origine\input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\maths\mat4.cpp">
+      <Filter>File di origine\maths</Filter>
+    </ClCompile>
+    <ClCompile Include="src\maths\vec2.cpp">
+      <Filter>File di origine\maths</Filter>
+    </ClCompile>
+    <ClCompile Include="src\maths\vec3.cpp">
+      <Filter>File di origine\maths</Filter>
+    </ClCompile>
+    <ClCompile Include="src\maths\vec4.cpp">
+      <Filter>File di origine\maths</Filter>
     </ClCompile>
     <ClCompile Include="src\graphics\buffers\vertexarray.cpp">
+      <Filter>File di origine\graphics\buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\font.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\simple2drenderer.cpp">
+    <ClCompile Include="src\graphics\font_manager.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\gorilla-audio\ga.c">
+      <Filter>File di origine\ext\gorilla-audio</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\gorilla-audio\devices\ga_openal.c">
+      <Filter>File di origine\ext\gorilla-audio</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\gorilla-audio\ga_stream.c">
+      <Filter>File di origine\ext\gorilla-audio</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\gorilla-audio\gau.c">
+      <Filter>File di origine\ext\gorilla-audio</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\gorilla-audio\common\gc_common.c">
+      <Filter>File di origine\ext\gorilla-audio</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\gorilla-audio\common\gc_thread.c">
+      <Filter>File di origine\ext\gorilla-audio</Filter>
+    </ClCompile>
+    <ClCompile Include="src\audio\sound.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\audio\sound_manager.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="tilelayer.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="examples\game.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\engine\engine.h">
-      <Filter>File di intestazione</Filter>
+    <ClInclude Include="ext\freetype\include\ft2build.h">
+      <Filter>File di intestazione\ext\freetype</Filter>
     </ClInclude>
-    <ClInclude Include="src\input\input.h">
-      <Filter>File di intestazione</Filter>
+    <ClInclude Include="ext\freetype\include\freetype\config\ftconfig.h">
+      <Filter>File di intestazione\ext\freetype</Filter>
     </ClInclude>
-    <ClInclude Include="src\maths\vec2.h">
-      <Filter>File di intestazione</Filter>
+    <ClInclude Include="ext\freetype\include\freetype\config\ftheader.h">
+      <Filter>File di intestazione\ext\freetype</Filter>
     </ClInclude>
-    <ClInclude Include="src\maths\vec3.h">
-      <Filter>File di intestazione</Filter>
+    <ClInclude Include="ext\freetype\include\freetype\config\ftmodule.h">
+      <Filter>File di intestazione\ext\freetype</Filter>
     </ClInclude>
-    <ClInclude Include="src\maths\vec4.h">
-      <Filter>File di intestazione</Filter>
+    <ClInclude Include="ext\freetype\include\freetype\config\ftoption.h">
+      <Filter>File di intestazione\ext\freetype</Filter>
     </ClInclude>
-    <ClInclude Include="src\maths\maths.h">
-      <Filter>File di intestazione</Filter>
+    <ClInclude Include="ext\freetype\include\freetype\config\ftstdlib.h">
+      <Filter>File di intestazione\ext\freetype</Filter>
     </ClInclude>
-    <ClInclude Include="src\maths\mat4.h">
-      <Filter>File di intestazione</Filter>
+    <ClInclude Include="ext\freetype-gl\freetype-gl.h">
+      <Filter>File di intestazione\ext\freetype-gl</Filter>
     </ClInclude>
-    <ClInclude Include="src\maths\maths_func.h">
-      <Filter>File di intestazione</Filter>
+    <ClInclude Include="ext\freetype-gl\opengl.h">
+      <Filter>File di intestazione\ext\freetype-gl</Filter>
     </ClInclude>
-    <ClInclude Include="src\utils\fileutils.h">
-      <Filter>File di intestazione</Filter>
+    <ClInclude Include="ext\freetype-gl\platform.h">
+      <Filter>File di intestazione\ext\freetype-gl</Filter>
     </ClInclude>
-    <ClInclude Include="src\utils\utils.h">
-      <Filter>File di intestazione</Filter>
+    <ClInclude Include="ext\freetype-gl\texture-atlas.h">
+      <Filter>File di intestazione\ext\freetype-gl</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\window.h">
-      <Filter>File di intestazione</Filter>
+    <ClInclude Include="ext\freetype-gl\texture-font.h">
+      <Filter>File di intestazione\ext\freetype-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\freetype-gl\vec234.h">
+      <Filter>File di intestazione\ext\freetype-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\freetype-gl\vector.h">
+      <Filter>File di intestazione\ext\freetype-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\batchrenderer2d.h">
+      <Filter>File di intestazione\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\label.h">
+      <Filter>File di intestazione\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\renderable2d.h">
+      <Filter>File di intestazione\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\renderer2d.h">
+      <Filter>File di intestazione\graphics</Filter>
     </ClInclude>
     <ClInclude Include="src\graphics\shader.h">
-      <Filter>File di intestazione</Filter>
+      <Filter>File di intestazione\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\sprite.h">
+      <Filter>File di intestazione\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\texture.h">
+      <Filter>File di intestazione\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\window.h">
+      <Filter>File di intestazione\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\input\input.h">
+      <Filter>File di intestazione\input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\maths\mat4.h">
+      <Filter>File di intestazione\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\maths\maths.h">
+      <Filter>File di intestazione\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\maths\maths_func.h">
+      <Filter>File di intestazione\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\maths\vec2.h">
+      <Filter>File di intestazione\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\maths\vec3.h">
+      <Filter>File di intestazione\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\maths\vec4.h">
+      <Filter>File di intestazione\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\fileutils.h">
+      <Filter>File di intestazione\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\imageload.h">
+      <Filter>File di intestazione\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\timer.h">
+      <Filter>File di intestazione\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\utils.h">
+      <Filter>File di intestazione\utils</Filter>
     </ClInclude>
     <ClInclude Include="src\graphics\buffers\buffer.h">
-      <Filter>File di intestazione</Filter>
+      <Filter>File di intestazione\graphics\buffers</Filter>
     </ClInclude>
     <ClInclude Include="src\graphics\buffers\indexbuffer.h">
+      <Filter>File di intestazione\graphics\buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\layers\group.h">
+      <Filter>File di intestazione\graphics\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\layers\layer.h">
+      <Filter>File di intestazione\graphics\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\font.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="src\graphics\buffers\vertexarray.h">
+      <Filter>File di intestazione\graphics\buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\font_manager.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\renderable2d.h">
+    <ClInclude Include="ext\gorilla-audio\ga.h">
+      <Filter>File di intestazione\ext\gorilla-audio</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\gorilla-audio\ga_internal.h">
+      <Filter>File di intestazione\ext\gorilla-audio</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\gorilla-audio\devices\ga_openal.h">
+      <Filter>File di intestazione\ext\gorilla-audio</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\gorilla-audio\gau.h">
+      <Filter>File di intestazione\ext\gorilla-audio</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\gorilla-audio\common\gc_common.h">
+      <Filter>File di intestazione\ext\gorilla-audio</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\gorilla-audio\common\gc_thread.h">
+      <Filter>File di intestazione\ext\gorilla-audio</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\gorilla-audio\common\gc_types.h">
+      <Filter>File di intestazione\ext\gorilla-audio</Filter>
+    </ClInclude>
+    <ClInclude Include="src\audio\sound.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\renderer2d.h">
+    <ClInclude Include="src\audio\sound_manager.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\simple2drenderer.h">
+    <ClInclude Include="src\utils\stringutils.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="tilelayer.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\badger.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="src\shaders\basic.vert" />
-    <None Include="src\shaders\basic.frag" />
+    <None Include="src\shaders\basic.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="src\shaders\basic.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="src\shaders\basic.es3.frag" />
+    <None Include="src\shaders\basic.es3.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="test.png">
+      <Filter>File di risorse</Filter>
+    </Image>
+    <Image Include="test2.png">
+      <Filter>File di risorse</Filter>
+    </Image>
+    <Image Include="test3.png">
+      <Filter>File di risorse</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="arial.ttf" />
   </ItemGroup>
 </Project>

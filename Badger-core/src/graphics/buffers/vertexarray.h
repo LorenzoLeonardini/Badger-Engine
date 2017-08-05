@@ -1,7 +1,13 @@
 #pragma once
 
 #include <vector>
-#include <GL/glew.h>
+
+#ifdef BADGER_EMSCRIPTEN
+	#define GLFW_INCLUDE_ES3
+	#include <GLFW/glfw3.h>
+#else
+	#include <GL/glew.h>
+#endif
 
 #include "buffer.h"
 

@@ -1,10 +1,21 @@
 #pragma once
 
 #include <iostream>
-#include <GL/glew.h>
+
+#ifdef BADGER_EMSCRIPTEN
+	#define GLFW_INCLUDE_ES3
+	#include <FreeImage.h>
+#else
+	#include <GL/glew.h>
+#endif
+
 #include <GLFW/glfw3.h>
+
 #include "../utils/utils.h"
 #include "../input/input.h"
+
+#include "font_manager.h"
+#include "../audio/sound_manager.h"
 
 namespace badger {
 	namespace graphics {
@@ -31,6 +42,8 @@ namespace badger {
 
 			inline int getWidth() const { return m_Width; }
 			inline int getHeight() const { return m_Height; }
+
+			friend void window_resize(GLFWwindow *window, int width, int height);
 		private:
 			bool init();
 		};

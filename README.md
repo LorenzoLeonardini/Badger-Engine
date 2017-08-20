@@ -1,4 +1,4 @@
-<div align="center"><img src="http://lorenzoleonardini.altervista.org/github/Badger-Engine/logo128.png" width="90px"></div>
+<div align="center"><img src="http://lorenzoleonardini.altervista.org/github/Badger-Engine/logo.svg" width="90px"></div>
 <div align="center"><h1>Badger Engine</h1></div>
 
 Badger-Engine wants to be a 2D & 3D Game Engine written in Java. Right now the only part in development is the 2D one. The Physics Engine is made from scratch and so the Graphics one, which uses <a href="https://www.opengl.org/" target="_blank">OpenGL</a> with the help of <a href="https://lwjgl.org" target="_blank">LWJGL 3</a>. <a href="https://openal.org" target="_blank">OpenAL</a> is used from this library, too.

@@ -1,5 +1,7 @@
 #include "window.h"
 
+#include <Windows.h>
+
 namespace badger {
 	namespace graphics {
 
@@ -33,9 +35,9 @@ namespace badger {
 			audio::SoundManager::clean();
 		}
 
-		void Window::setIconImages()
+		void Window::setIconImages(GLFWimage images[], int count)
 		{
-
+			glfwSetWindowIcon(m_Window, count, images);
 		}
 
 		void Window::printVersion() const

@@ -14,6 +14,14 @@
 
 namespace badger { namespace audio {
 
+	/**
+		Represent a sound in the game.
+
+		Allows to play, pause, stop, loop.
+
+		@author Lorenzo Leonardini
+		@version 08/21/2017
+	*/
 	class Sound
 	{
 	private:
@@ -28,6 +36,12 @@ namespace badger { namespace audio {
 
 		float m_Gain;
 	public:
+		/**
+			Create a sound object
+
+			@param name The name associated with the sound
+			@param filename File path
+		*/
 		Sound(const std::string &name, const std::string &filename);
 		~Sound();
 		
@@ -37,6 +51,9 @@ namespace badger { namespace audio {
 		void pause();
 		void stop();
 
+		/**
+			Set the volume for the sound
+		*/
 		void setGain(float gain);
 
 #ifdef BADGER_EMSCRIPTEN

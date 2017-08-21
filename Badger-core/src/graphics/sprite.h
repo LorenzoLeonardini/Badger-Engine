@@ -11,6 +11,9 @@ namespace badger { namespace graphics {
 	public:
 		Sprite(float x, float y, float width, float height, unsigned int color);
 		Sprite(float x, float y, float width, float height, Texture *texture);
+
+		Sprite(float width, float height, unsigned int color);
+		Sprite(float width, float height, Texture *texture);
 	};
 
 } }

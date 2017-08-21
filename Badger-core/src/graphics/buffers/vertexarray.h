@@ -14,6 +14,12 @@
 namespace badger {
 	namespace graphics {
 
+		/**
+			OpenGL vertex array
+
+			@author Yan Chernikov
+			@version 03/11/2015
+		*/
 		class VertexArray
 		{
 		private:

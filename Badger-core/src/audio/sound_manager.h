@@ -10,6 +10,12 @@
 
 namespace badger { namespace audio {
 
+	/**
+		Manages all the sounds in the engine
+
+		@author Lorenzo Leonardini
+		@version 08/21/2017
+	*/
 	class SoundManager
 	{
 	private:
@@ -20,9 +26,24 @@ namespace badger { namespace audio {
 
 		static std::vector<Sound*> m_Sounds;
 	public:
+		/**
+			Initialize the sound manager
+		*/
 		static void init();
+		/**
+			Store a Sound in the manager
+		*/
 		static void add(Sound *sound);
+		/**
+			Get a Sound stored in the manager
+
+			@param name the name associated with the Sound
+			@return the Sound object
+		*/
 		static Sound* get(const std::string &name);
+		/**
+			Method called by the engine every frame to continue playing the sounds
+		*/
 		static void update();
 		static void clean();
 	private:

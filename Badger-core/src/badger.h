@@ -11,8 +11,11 @@
 #include "graphics/batchrenderer2d.h"
 #include "graphics/layers/layer.h"
 
+#include "physics/physicsengine.h"
+
 #include "maths/maths.h"
 #include "utils/timer.h"
+
 
 #ifdef BADGER_EMSCRIPTEN
 
@@ -29,6 +32,7 @@ namespace badger
 	class Badger
 	{
 	private:
+		physics::PhysicsEngine *m_PhysicsEngine;
 		graphics::Window *m_Window;
 		Timer *m_Timer;
 		unsigned int m_FramesPerSecond, m_UpdatesPerSecond;
@@ -38,7 +42,8 @@ namespace badger
 	protected:
 		Badger() : m_FramesPerSecond(0), m_UpdatesPerSecond(0)
 		{
-
+			m_PhysicsEngine = new physics::PhysicsEngine();
+			srand(static_cast <unsigned> (time(0)));
 		}
 		virtual ~Badger() 
 		{ 
@@ -96,6 +101,7 @@ namespace badger
 				if (m_Timer->elapsed() - updateTimer > updateTick)
 				{
 					update();
+					m_PhysicsEngine->update(updateTick);
 					updates++;
 					updateTimer += updateTick;
 				}

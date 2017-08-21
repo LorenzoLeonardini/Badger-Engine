@@ -11,6 +11,8 @@
 namespace badger {
 	namespace graphics {
 
+		class Layer;
+
 		struct VertexData
 		{
 			maths::vec3 vertex;
@@ -21,8 +23,10 @@ namespace badger {
 
 		class Renderable2D
 		{
-		protected:
+			friend Layer;
+		public:
 			maths::vec3 m_Position;
+		protected:
 			maths::vec2 m_Size;
 			unsigned int m_Color;
 			std::vector<maths::vec2> m_UV;

@@ -1,3 +1,7 @@
+/**
+	@author Lorenzo Leonardini
+	@version 08/21/2017
+*/
 #include "sound.h"
 #include "sound_manager.h"
 

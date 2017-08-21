@@ -19,6 +19,14 @@ namespace badger { namespace graphics {
 #define SHADER_TID_INDEX		2
 #define SHADER_COLOR_INDEX		3
 
+	/**
+		Optimized 2D renderer
+
+		This 2D renderer uses optimizations to reduce the amount of draw callbacks
+
+		@author Yan Chernikov
+		@version 03/12/2015
+	*/
 	class BatchRenderer2D : public Renderer2D
 	{
 	private:
@@ -36,9 +44,25 @@ namespace badger { namespace graphics {
 		BatchRenderer2D();
 		~BatchRenderer2D();
 		void begin() override;
+		/**
+			Add a renderable to the drawing list
+
+			@param renderable
+		*/
 		void submit(const Renderable2D *renderable) override;
+		/**
+			Draw a string
+
+			@param text the content of the string
+			@param position the position of the string
+			@param font the Font object used for the string
+			@param color the color
+		*/
 		void drawString(const std::string &text, const maths::vec3 &position, const Font &font, unsigned int color) override;
 		void end() override;
+		/**
+			Render everything
+		*/
 		void flush() override;
 	private:
 		void init();

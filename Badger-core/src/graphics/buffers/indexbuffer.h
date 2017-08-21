@@ -10,6 +10,12 @@
 namespace badger {
 	namespace graphics {
 
+		/**
+			OpenGL IndexBuffer
+
+			@author Yan Chernikov
+			@version 03/11/2015
+		*/
 		class IndexBuffer
 		{
 		private:

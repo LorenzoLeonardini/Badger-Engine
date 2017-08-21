@@ -300,6 +300,15 @@
     <ClCompile Include="examples\game.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
+    <ClCompile Include="src\physics\entity.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\physics\physicsengine.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\physics\hitbox.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ext\freetype\include\ft2build.h">
@@ -455,6 +464,18 @@
     <ClInclude Include="src\badger.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
+    <ClInclude Include="src\physics\entity.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\physics\physicsengine.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\physics\hitbox.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\shaders\basic.vert">
@@ -465,6 +486,10 @@
     </None>
     <None Include="src\shaders\basic.es3.frag" />
     <None Include="src\shaders\basic.es3.vert" />
+    <None Include="src\shaders\verybasic.es3.frag" />
+    <None Include="src\shaders\verybasic.es3.vert" />
+    <None Include="src\shaders\verybasic.frag" />
+    <None Include="src\shaders\verybasic.vert" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="test.png">
@@ -479,5 +504,10 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="arial.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc">
+      <Filter>File di risorse</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

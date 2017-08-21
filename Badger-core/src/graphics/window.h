@@ -32,7 +32,7 @@ namespace badger {
 		public:
 			Window(int width, int height, const char *title);
 			~Window();
-			void setIconImages();
+			void setIconImages(GLFWimage images[], int count);
 			void printVersion() const;
 			void render();
 

@@ -124,7 +124,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;FT2_BUILD_LIBRARY;WIN32;_LIB;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;FT2_BUILD_LIBRARY;WIN32;_LIB;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_DEBUG_ENGINE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>UninitializedLocalUsageCheck</BasicRuntimeChecks>
     </ClCompile>
     <Link>
@@ -293,6 +293,9 @@
     <ClCompile Include="src\maths\vec3.cpp" />
     <ClCompile Include="src\maths\vec4.cpp" />
     <ClCompile Include="src\graphics\window.cpp" />
+    <ClCompile Include="src\physics\entity.cpp" />
+    <ClCompile Include="src\physics\hitbox.cpp" />
+    <ClCompile Include="src\physics\physicsengine.cpp" />
     <ClCompile Include="tilelayer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -316,6 +319,7 @@
     <ClInclude Include="ext\gorilla-audio\ga.h" />
     <ClInclude Include="ext\gorilla-audio\gau.h" />
     <ClInclude Include="ext\gorilla-audio\ga_internal.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="src\audio\sound.h" />
     <ClInclude Include="src\audio\sound_manager.h" />
     <ClInclude Include="src\badger.h" />
@@ -339,6 +343,9 @@
     <ClInclude Include="src\maths\maths_func.h" />
     <ClInclude Include="src\maths\vec3.h" />
     <ClInclude Include="src\maths\vec4.h" />
+    <ClInclude Include="src\physics\entity.h" />
+    <ClInclude Include="src\physics\hitbox.h" />
+    <ClInclude Include="src\physics\physicsengine.h" />
     <ClInclude Include="src\utils\imageload.h" />
     <ClInclude Include="src\utils\stringutils.h" />
     <ClInclude Include="src\utils\timer.h" />
@@ -353,6 +360,10 @@
     <None Include="src\shaders\basic.es3.vert" />
     <None Include="src\shaders\basic.frag" />
     <None Include="src\shaders\basic.vert" />
+    <None Include="src\shaders\verybasic.es3.frag" />
+    <None Include="src\shaders\verybasic.es3.vert" />
+    <None Include="src\shaders\verybasic.frag" />
+    <None Include="src\shaders\verybasic.vert" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="test.png" />
@@ -361,6 +372,9 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="arial.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

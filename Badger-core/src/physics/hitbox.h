@@ -9,6 +9,12 @@ namespace badger { namespace physics {
 	class Hitbox;
 	class RectHitbox;
 
+	/**
+		Circular hitbox
+
+		@author Lorenzo Leonardini
+		@version 08/21/2017
+	*/
 	class CircleHitbox
 	{
 	friend Hitbox;
@@ -20,12 +26,24 @@ namespace badger { namespace physics {
 		float m_Radius;
 		int m_Index;
 	public:
+		/**
+			Create CircleHitbox
+
+			@param position vec2 position relative to the Entity position (from -1 to 1 in each direction)
+			@param radius circle radius
+		*/
 		CircleHitbox(maths::vec2 position, float radius);
 		~CircleHitbox();
 		
 		static void circleCircleCollision();
 	};
 
+	/**
+		Rectangular hitbox
+
+		@author Lorenzo Leonardini
+		@version 08/21/2017
+	*/
 	class RectHitbox
 	{
 	private:
@@ -33,6 +51,12 @@ namespace badger { namespace physics {
 		maths::vec2 m_Scale;
 	};
 
+	/**
+		Hitbox for each Entity
+
+		@author Lorenzo Leonardini
+		@version 08/21/2017
+	*/
 	class Hitbox
 	{
 	friend Entity;

@@ -6,6 +6,14 @@
 
 namespace badger {
 
+	/**
+		Load image for FreeImage
+
+		@param filename the file path
+		@param width will be override with the width of the image
+		@param height will be override with the height of the image
+		@return BYTE object
+	*/
 	static BYTE *load_image(const char *filename, GLsizei *width, GLsizei *height)
 	{
 		FREE_IMAGE_FORMAT fif = FIF_UNKNOWN;

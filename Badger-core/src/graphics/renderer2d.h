@@ -17,6 +17,12 @@ namespace badger {
 
 		class Renderable2D;
 
+		/**
+			Abstract structure of a 2D renderer
+
+			@author Lorenzo Leonardini
+			@version 08/21/2017
+		*/
 		class Renderer2D
 		{
 		protected:
@@ -30,6 +36,12 @@ namespace badger {
 			}
 		public:
 			virtual ~Renderer2D() { }
+			/**
+				Push a transformation matrix which affect all the Renderable2D from now on
+
+				@param matrix the transformation matrix
+				@param override [optional] if false or omitted the matrix will be added to the current one. If true it will override the previous ones
+			*/
 			void push(const maths::mat4 &matrix, bool override = false)
 			{
 				if(override)
@@ -40,6 +52,9 @@ namespace badger {
 				m_TransformationBack = &m_TransformationStack.back();
 			}
 
+			/**
+				Pop the last transformation matrix
+			*/
 			void pop()
 			{
 				if(m_TransformationStack.size() > 1)
@@ -50,7 +65,18 @@ namespace badger {
 			}
 
 			virtual void begin() {}
+			/**
+				Submit a Renderable2D object to the renderer
+			*/
 			virtual void submit(const Renderable2D *renderable) = 0;
+			/**
+				Draw a string
+
+				@param text the content
+				@param position the position
+				@param font the Font object used to render the string
+				@param color the color used to render the string
+			*/
 			virtual void drawString(const std::string &text, const maths::vec3 &position, const Font &font, unsigned int color) {}
 			virtual void end() {}
 			virtual void flush() = 0;

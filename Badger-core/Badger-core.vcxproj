@@ -295,7 +295,7 @@
     <ClCompile Include="src\graphics\window.cpp" />
     <ClCompile Include="src\physics\entity.cpp" />
     <ClCompile Include="src\physics\hitbox.cpp" />
-    <ClCompile Include="src\physics\physicsengine.cpp" />
+    <ClCompile Include="src\physics\physics_engine.cpp" />
     <ClCompile Include="tilelayer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -345,7 +345,7 @@
     <ClInclude Include="src\maths\vec4.h" />
     <ClInclude Include="src\physics\entity.h" />
     <ClInclude Include="src\physics\hitbox.h" />
-    <ClInclude Include="src\physics\physicsengine.h" />
+    <ClInclude Include="src\physics\physics_engine.h" />
     <ClInclude Include="src\utils\imageload.h" />
     <ClInclude Include="src\utils\stringutils.h" />
     <ClInclude Include="src\utils\timer.h" />

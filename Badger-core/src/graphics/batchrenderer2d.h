@@ -25,7 +25,7 @@ namespace badger { namespace graphics {
 		This 2D renderer uses optimizations to reduce the amount of draw callbacks
 
 		@author Yan Chernikov
-		@version 03/12/2015
+		@version 04/12/2015
 	*/
 	class BatchRenderer2D : public Renderer2D
 	{
@@ -45,7 +45,7 @@ namespace badger { namespace graphics {
 		~BatchRenderer2D();
 		void begin() override;
 		/**
-			Add a renderable to the drawing list
+			Add a Renderable2D to the drawing list
 
 			@param renderable
 		*/

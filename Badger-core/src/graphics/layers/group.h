@@ -5,10 +5,10 @@
 namespace badger { namespace graphics {
 
 	/**
-		Group Renderables to push and pop matrix
+		Group Renderable2D to push and pop matrix
 
 		@author Yan Chernikov
-		@version 03/11/2015
+		@version 04/11/2015
 	*/
 	class Group : public Renderable2D
 	{
@@ -24,7 +24,7 @@ namespace badger { namespace graphics {
 		Group(const maths::mat4 &transform);
 		~Group();
 		/**
-			Add a renderable to the group
+			Add a Renderable2D to the group
 
 			@param renderable
 		*/

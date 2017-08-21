@@ -14,7 +14,7 @@ namespace badger {
 			OpenGL IndexBuffer
 
 			@author Yan Chernikov
-			@version 03/11/2015
+			@version 04/11/2015
 		*/
 		class IndexBuffer
 		{

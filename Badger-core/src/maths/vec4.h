@@ -5,6 +5,12 @@
 namespace badger {
 	namespace maths {
 
+		/**
+			4D vector object
+
+			@author Yan Chernikov
+			@version 03/18/2015
+		*/
 		struct vec4
 		{
 			float x, y, z, w;

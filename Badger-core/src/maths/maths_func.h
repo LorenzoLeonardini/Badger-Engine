@@ -5,6 +5,12 @@
 
 namespace badger { namespace maths {
 
+	/**
+		Convert degrees in radians
+
+		@param degrees
+		@return radians
+	*/
 	inline float toRadians(float degrees)
 	{
 		return degrees * (M_PI / 180.0f);

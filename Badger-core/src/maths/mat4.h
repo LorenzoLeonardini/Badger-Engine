@@ -7,6 +7,12 @@
 namespace badger {
 	namespace maths {
 
+		/**
+			4x4 Matrix object
+
+			@author Yan Chernikov
+			@version 04/11/2015
+		*/
 		struct mat4
 		{
 			union
@@ -15,9 +21,20 @@ namespace badger {
 				vec4 columns[4];
 			};
 
+			/**
+				Create matrix
+			*/
 			mat4();
+			/**
+				Create matrix setting a diagonal value
+
+				@param diagonal the diagonal
+			*/
 			mat4(float diagonal);
 
+			/**
+				@return an identity matrix
+			*/
 			static mat4 identity();
 
 			mat4 &multiply(const mat4 &other);
@@ -32,11 +49,50 @@ namespace badger {
 
 			mat4 &invert();
 
+			/**
+				Create an ortographic matrix
+
+				@param left left plane
+				@param right right plane
+				@param bottom bottom plane
+				@param top top plane
+				@param near near plane
+				@param far far plane
+				@return the generated matrix
+			*/
 			static mat4 orthographic(float left, float right, float bottom, float top, float near, float far);
+			/**
+				Create a perspective matrix
+
+				@param fov the field of view
+				@param aspectRatio the aspect ratio
+				@param near near plane
+				@param far far plane
+				@return the generated matrix
+			*/
 			static mat4 perspective(float fov, float aspectRatio, float near, float far);
 
+			/**
+				Create a translation matrix
+
+				@param translation vec3 translation
+				@return the generated matrix
+			*/
 			static mat4 translation(const vec3 &translation);
+			/**
+				Create a rotation matrix
+
+				@param angle float angle
+				@param axis vec3 axis
+				@return the generated matrix
+			*/
 			static mat4 rotation(float angle, const vec3 &axis);
+			/**
+				Create a scale matrix
+
+				@param translation vec3 scale
+				@return the generated matrix
+			*/
 			static mat4 scale(const vec3 &scale);
 
 		};

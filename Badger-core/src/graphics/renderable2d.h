@@ -13,6 +13,12 @@ namespace badger {
 
 		class Layer;
 
+		/**
+			OpenGL vertex data
+
+			@author Yan Chernikov
+			@version 04/11/2015
+		*/
 		struct VertexData
 		{
 			maths::vec3 vertex;
@@ -21,6 +27,12 @@ namespace badger {
 			unsigned int color;
 		};
 
+		/**
+			Abstract structure of a 2D renderable object
+
+			@author Lorenzo Leonardini
+			@version 08/21/2017
+		*/
 		class Renderable2D
 		{
 			friend Layer;
@@ -34,6 +46,13 @@ namespace badger {
 		protected:
 			Renderable2D() : m_Texture(nullptr) { setUVDefaults(); }
 		public:
+			/**
+				Create Renderable2D
+
+				@param position vec3 position
+				@param size vec2 size
+				@param color the object color
+			*/
 			Renderable2D(maths::vec3 position, maths::vec2 size, unsigned int color)
 				: m_Position(position), m_Size(size), m_Color(color), m_Texture(nullptr)
 			{
@@ -42,12 +61,27 @@ namespace badger {
 			
 			virtual ~Renderable2D()	{}
 
+			/**
+				Submit the Renderable2D object to a Renderer2D
+
+				@param renderer the renderer
+			*/
 			virtual void submit(Renderer2D *renderer) const
 			{
 				renderer->submit(this);
 			}
 
+			/**
+				Change the color
+
+				@param color new color
+			*/
 			void setColor(unsigned int color) { m_Color = color; }
+			/**
+				Change the color
+
+				@param color new color (vec4)
+			*/
 			void setColor(const maths::vec4 &color)
 			{
 				int r = color.x * 255.0f;

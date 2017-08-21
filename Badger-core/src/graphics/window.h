@@ -22,6 +22,14 @@ namespace badger {
 
 		using namespace input;
 
+		/**
+			The Window class
+			
+			Used to handle input and window callback
+
+			@author Lorenzo Leonardini
+			@version 08/21/2017
+		*/
 		class Window
 		{
 		public:
@@ -30,11 +38,29 @@ namespace badger {
 			const char *m_Title;
 			int m_Width, m_Height;
 		public:
+			/**
+				Create a new window
+
+				@param width window width
+				@param height window height
+				@param title string title
+			*/
 			Window(int width, int height, const char *title);
 			~Window();
+			/**
+				Set the icon of the window
+
+				It takes in an array of GLFWimages, from which OpenGL will choose
+				depending on the system
+
+				@param images the array of GLFWimages
+				@param count the size of the array
+			*/
 			void setIconImages(GLFWimage images[], int count);
+			/**
+				Print the OpenGL version
+			*/
 			void printVersion() const;
-			void render();
 
 			void clear() const;
 			void update();

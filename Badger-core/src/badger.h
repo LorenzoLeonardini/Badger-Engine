@@ -11,7 +11,7 @@
 #include "graphics/batchrenderer2d.h"
 #include "graphics/layers/layer.h"
 
-#include "physics/physicsengine.h"
+#include "physics/physics_engine.h"
 
 #include "maths/maths.h"
 #include "utils/timer.h"
@@ -29,6 +29,12 @@ static void dispatch_main(void *fp)
 
 namespace badger
 {
+	/**
+		Main Engine Class
+
+		@author Lorenzo Leonardini
+		@version 08/21/2017
+	*/
 	class Badger
 	{
 	private:
@@ -53,6 +59,14 @@ namespace badger
 			delete mouse;
 		}
 
+		/**
+			Create Window
+
+			@param width the width
+			@param height the height
+			@param name the title
+			@return Window object
+		*/
 		graphics::Window *createWindow(int width, int height, const char *name)
 		{
 			m_Window = new graphics::Window(width, height, name);
@@ -62,6 +76,9 @@ namespace badger
 		}
 
 	public:
+		/**
+			Start the game
+		*/
 		void start()
 		{
 			init();
@@ -69,18 +86,29 @@ namespace badger
 		}
 
 	protected:
-		// Runs once upon initialization
+		/**
+			Runs once upon initialization
+		*/
 		virtual void init() = 0;
-		// Runs once per second
+		/**
+			Runs once per second
+		*/
 		virtual void tick() { }
-		// Runs 60 times per second
+		/**
+			Runs 60 times per second
+		*/
 		virtual void update() { }
-		// Runs as fast as possible (unless vsync is enabled)
+		/**
+			Runs as fast as possible (unless vsync is enabled)
+		*/
 		virtual void render() = 0;
 
 		const unsigned int getFPS() const { return m_FramesPerSecond; }
 		const unsigned int getUPS() const { return m_UpdatesPerSecond; }
 	private:
+		/**
+			THE GAME LOOP
+		*/
 		void run()
 		{
 			m_Timer = new Timer();

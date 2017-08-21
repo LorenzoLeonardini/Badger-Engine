@@ -11,7 +11,7 @@ namespace badger { namespace graphics {
 		Use different layers to render different things: 3D scene, 2D scene, UI, text...
 
 		@author Yan Chernikov
-		@version 03/11/2015
+		@version 04/11/2015
 	*/
 	class Layer
 	{
@@ -31,13 +31,13 @@ namespace badger { namespace graphics {
 		Layer(Renderer2D *renderer, Shader *shader, maths::mat4 projectionMatrix);
 		virtual ~Layer();
 		/**
-			Add a Renderable2D to this layer. When a renderable is added it will be rendered during the rendering process
+			Add a Renderable2D to this layer. When a Renderable2D is added it will be rendered during the rendering process
 
 			@param renderable
 		*/
 		virtual void add(Renderable2D *renderable);
 		/**
-			Render all the renderables in this layer
+			Render all the Renderable2D in this layer
 		*/
 		virtual void render();
 

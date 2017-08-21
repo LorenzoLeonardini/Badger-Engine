@@ -6,6 +6,13 @@
 
 namespace badger {
 	
+	/**
+		Split a string using a char delimiter
+
+		@param string the string to be splitted
+		@param delimiter the delimiter
+		@return vector of strings
+	*/
 	static std::vector<std::string> split_string(const std::string& string, const char delimiter)
 	{
 		size_t start = 0;

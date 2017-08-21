@@ -40,6 +40,12 @@ namespace badger {
 
 	};
 	#else
+	/**
+		Timer class
+
+		@author Yan Chernikov
+		@version 1
+	*/
 	class Timer
 	{
 	private: 

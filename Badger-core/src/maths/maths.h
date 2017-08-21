@@ -9,6 +9,11 @@
 
 namespace badger { namespace maths {
 
+	/**
+		Create a random 2D vector with defined magnitude
+		
+		@param magnitude
+	*/
 	static vec2 randomVec2(float magnitude)
 	{
 		float length = (static_cast <float> (rand()) / static_cast <float> (RAND_MAX)) * magnitude;
@@ -18,6 +23,9 @@ namespace badger { namespace maths {
 		return vec2(x, y);
 	}
 
+	/**
+		Create a random 2D vector with magnitude of 1
+	*/
 	static vec2 randomVec2()
 	{
 		float length = (static_cast <float> (rand()) / static_cast <float> (RAND_MAX));
@@ -27,6 +35,11 @@ namespace badger { namespace maths {
 		return vec2(x, y);
 	}
 
+	/**
+		Create a random 3D vector with defined magnitude
+
+		@param magnitude
+	*/
 	static vec3 randomVec3(float magnitude)
 	{
 		float length = (static_cast <float> (rand()) / static_cast <float> (RAND_MAX)) * magnitude;
@@ -41,6 +54,9 @@ namespace badger { namespace maths {
 		return vec3(x, y, z);
 	}
 
+	/**
+		Create a random 3D vector with magnitude of 1
+	*/
 	static vec3 randomVec3()
 	{
 		float length = (static_cast <float> (rand()) / static_cast <float> (RAND_MAX));

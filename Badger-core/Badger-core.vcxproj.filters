@@ -303,10 +303,10 @@
     <ClCompile Include="src\physics\entity.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="src\physics\physicsengine.cpp">
+    <ClCompile Include="src\physics\hitbox.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="src\physics\hitbox.cpp">
+    <ClCompile Include="src\physics\physics_engine.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
   </ItemGroup>
@@ -467,13 +467,13 @@
     <ClInclude Include="src\physics\entity.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="src\physics\physicsengine.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
     <ClInclude Include="src\physics\hitbox.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\physics\physics_engine.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>

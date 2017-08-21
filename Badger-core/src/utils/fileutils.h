@@ -4,6 +4,12 @@
 
 namespace badger {
 
+	/**
+		Read a file
+
+		@param filepath the file path
+		@return std::string containing the file content
+	*/
 	static std::string read_file(const char* filepath)
 	{
 		FILE *file = fopen(filepath, "rt");

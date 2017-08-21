@@ -15,6 +15,13 @@ namespace badger { namespace physics {
 	private:
 		vec2 m_Gravity = vec2(0, -40);
 	public:
+		/**
+			Update the PhysicsEngine:
+
+			- update each entity
+			- check collisions
+			- call collision callbacks
+		*/
 		void update(double delta);
 	};
 

@@ -46,10 +46,6 @@ namespace badger { namespace physics {
 
 	void CircleHitbox::circleCircleCollision()
 	{
-		std::cout << "HITBOXES:" << std::endl;
-
-		for (int i = 0; i < CIRCLE_HITBOXES.size(); i++)
-			std::cout << "\t" << CIRCLE_HITBOXES[i]->m_Position << std::endl;
 	}
 
 } }

@@ -11,6 +11,12 @@
 
 namespace badger { namespace graphics {
 
+	/**
+		Texture element of a Sprite
+
+		@author Yan Chernikov
+		@version 04/16/2015
+	*/
 	class Texture
 	{
 	private:
@@ -18,6 +24,11 @@ namespace badger { namespace graphics {
 		GLuint m_TID;
 		GLsizei m_Width, m_Height;
 	public:
+		/**
+			Create a Texture
+
+			@param filename path to the image file
+		*/
 		Texture(const std::string &filename);
 		~Texture();
 		void bind() const;

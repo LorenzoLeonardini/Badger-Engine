@@ -23,18 +23,27 @@ Here you can find the complete list of features/bug fixes I'm currently working 
 - Bug fixes:
 	- Circle bouncing bug
 
-## Licence
+## Leonardini Edu License
 
-You are free to:
+Badger Engine
+
+Copyright (C) 2018 Lorenzo Leonardini
+
+This license is very permissive as soon as the user uses this software for educational purpose.
+He is free to:
 - modify this Engine and use it for a personal, private project
-- use this Engine without any modification for a public non-commercial project
 - study the code for a learn scope
+- use this code or part of this code for a lesson
+- send this code to others (but including this license file)
+- use this Engine without any modification for a public non-commercial project
+
+In every case the creator, Lorenzo Leonardini, needs to be explicitly credited.
 
 <strong>If you want to use this Engine for a commercial project you must ask me for a permission.</strong><br />
 
 <strong><i>Any other usage that is not specified here is ABSOLUTELY NOT ALLOWED and you MUST NOT do it.</i></strong><br />
 
-<i>If you need to discuss this very strict licence you can contact me at <strong>dev.lorenzoleonardini [ @ ] gmail . com</strong></i>
+<i>If you need to discuss this license you can contact me at <strong>dev.lorenzoleonardini [ @ ] gmail . com</strong></i>
 
 ## More
 

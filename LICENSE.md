@@ -1,0 +1,19 @@
+# Leonardini Edu License
+
+Badger Engine android
+Copyright (C) 2018 Lorenzo Leonardini
+
+This license is very permissive as soon as the user uses this software for educational purpose.
+He is free to:
+- modify this Engine and use it for a personal, private project
+- study the code for a learn scope
+- use this code or part of this code for a lesson
+- send this code to others (but including this license file)
+- use this Engine without any modification for a public non-commercial project
+
+In every case the creator, Lorenzo Leonardini, needs to be explicitly credited.
+
+<strong>If you want to use this software for a commercial project you must ask for a permission.</strong><br />
+<strong><i>Any other usage that is not specified here is ABSOLUTELY NOT ALLOWED and you MUST NOT do it.</i></strong><br />
+
+<i>If you need to discuss this license you can contact me at <strong>dev.lorenzoleonardini [ @ ] gmail . com</strong></i>

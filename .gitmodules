@@ -1,0 +1,12 @@
+[submodule "badger/vendor/spdlog"]
+	path = badger/vendor/spdlog
+	url = https://github.com/gabime/spdlog
+[submodule "Badger/vendor/GLFW"]
+	path = Badger/vendor/GLFW
+	url = https://github.com/glfw/glfw
+[submodule "badger/vendor/imgui"]
+	path = badger/vendor/imgui
+	url = https://github.com/ocornut/imgui
+[submodule "badger/vendor/GLFW"]
+	path = badger/vendor/GLFW
+	url = git@github.com:glfw/glfw.git

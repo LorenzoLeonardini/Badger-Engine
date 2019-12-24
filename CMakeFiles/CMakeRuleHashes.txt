@@ -1,0 +1,2 @@
+# Hashes of file build rules.
+6ec2c78f632949a92f737782d32041e0 badger/vendor/GLFW/CMakeFiles/uninstall

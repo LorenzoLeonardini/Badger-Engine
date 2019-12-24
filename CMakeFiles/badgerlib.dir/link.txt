@@ -1,0 +1,2 @@
+/usr/bin/ar qc bin-lib/libbadgerlib.a  CMakeFiles/badgerlib.dir/badger/src/Test.cpp.o
+/usr/bin/ranlib bin-lib/libbadgerlib.a

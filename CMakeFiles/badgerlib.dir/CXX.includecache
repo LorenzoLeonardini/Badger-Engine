@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pianka/BadgerEngine/badger/src/Test.cpp
+Test.h
+/home/pianka/BadgerEngine/badger/src/Test.h
+stdio.h
+-
+
+/home/pianka/BadgerEngine/badger/src/Test.h
+

@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++14 -g  -rdynamic CMakeFiles/game.dir/game/src/SandboxApp.cpp.o  -o bin/game -Wl,-rpath,/home/pianka/BadgerEngine/bin bin/libbadger.so bin/libglfw3.a -lrt -lm -ldl -lX11 -lpthread bin/libglad.so bin/libimgui.so 

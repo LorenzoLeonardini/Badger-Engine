@@ -1,0 +1,3 @@
+/home/pianka/BadgerEngine/badger/vendor/GLAD/CMakeFiles/rebuild_cache.dir
+/home/pianka/BadgerEngine/badger/vendor/GLAD/CMakeFiles/glad.dir
+/home/pianka/BadgerEngine/badger/vendor/GLAD/CMakeFiles/edit_cache.dir

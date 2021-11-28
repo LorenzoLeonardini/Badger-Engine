@@ -2,8 +2,8 @@ document.body.innerHTML = "<header></header>" + document.body.innerHTML + "<foot
 
 $(function()
 {
-	$('header').load("/Badger-Engine/header.html");
-	$('footer').load("/Badger-Engine/footer.html");
+	$('header').load("/header.html");
+	$('footer').load("/footer.html");
 });
 
 var lastScrollTop = 0;
